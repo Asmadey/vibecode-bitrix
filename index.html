@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VibeCode Bitrix Showcase — Каталог Реальных Проектов</title>
+  <meta name="description" content="Витрина решений и продуктов, созданных пользователями на платформе Битрикс24 VibeCode. Дашборды, ИИ-ассистенты, транскрибация, калькуляторы и боты.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- App Wrapper -->
+  <div class="app-container">
+
+    <!-- Mobile Header -->
+    <header class="mobile-header">
+      <div class="mobile-logo">
+        <div class="brand-icon" style="width:28px; height:28px; font-size:0.9rem;">V</div>
+        VibeCode Showcase
+      </div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Открыть меню">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        Меню
+      </button>
+    </header>
+
+    <!-- Sidebar - Static Left Menu (Fixed & Independent Scroll) -->
+    <aside class="sidebar" id="sidebar">
+      
+      <!-- Brand Logo -->
+      <div class="brand-header">
+        <div class="brand-icon">V</div>
+        <div>
+          <div class="brand-title">VibeCode</div>
+          <div class="brand-subtitle">Bitrix24 Showcase</div>
+        </div>
+      </div>
+
+      <!-- Live Search Box -->
+      <div class="search-container">
+        <svg class="search-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><path d="M21 21l-4.35-4.35"></path></svg>
+        <input type="text" id="searchInput" class="search-input" placeholder="Поиск по названию или автору...">
+      </div>
+
+      <!-- Navigation Categories -->
+      <div class="nav-section-title">Категории решений</div>
+      <ul class="nav-menu">
+        <li>
+          <a href="#analytics" class="nav-link active">
+            <span>📊 Сводная Аналитика</span>
+            <span class="nav-badge">5</span>
+          </a>
+        </li>
+        <li>
+          <a href="#calculators" class="nav-link">
+            <span>🧮 Калькуляторы</span>
+            <span class="nav-badge">2</span>
+          </a>
+        </li>
+        <li>
+          <a href="#ai-voice" class="nav-link">
+            <span>🎙️ ИИ & Транскрибация</span>
+            <span class="nav-badge">3</span>
+          </a>
+        </li>
+        <li>
+          <a href="#bots" class="nav-link">
+            <span>🤖 Чат-боты & Роботы</span>
+            <span class="nav-badge">2</span>
+          </a>
+        </li>
+        <li>
+          <a href="#devtools" class="nav-link">
+            <span>🛠️ DevTools & MCP</span>
+            <span class="nav-badge">4</span>
+          </a>
+        </li>
+      </ul>
+
+      <!-- Global Controls -->
+      <div style="display:flex; gap:0.5rem; margin-bottom:1.5rem;">
+        <button class="btn-secondary" id="expandAllBtn" style="flex:1; padding:0.4rem 0.5rem; font-size:0.78rem; justify-content:center;">Раскрыть все</button>
+        <button class="btn-secondary" id="collapseAllBtn" style="flex:1; padding:0.4rem 0.5rem; font-size:0.78rem; justify-content:center;">Свернуть все</button>
+      </div>
+
+      <!-- Sidebar Footer Stats -->
+      <div class="sidebar-footer">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-val" id="totalCasesCount">16</div>
+            <div class="stat-lbl">Кейсов</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-val">100%</div>
+            <div class="stat-lbl">VibeCode</div>
+          </div>
+        </div>
+        <div style="font-size:0.75rem; color:var(--text-dim); text-align:center;">
+          База данных сообщества Telegram<br>Битрикс24 VibeCode Тест-Драйв
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area - Scrollable Right -->
+    <main class="main-content">
+
+      <!-- Hero Header Banner -->
+      <section class="hero-section">
+        <div class="hero-tag">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+          Практический кейс-бук сообщества
+        </div>
+        <h1 class="hero-title">Что создают разработчики и бизнес на Битрикс24 VibeCode</h1>
+        <p class="hero-description">
+          Исследуйте 16+ реальных продуктов, отчетов, калькуляторов и ИИ-ассистентов, созданных пользователями платформы. Слева — навигация по категориям, ниже — аккордеон с подробными разборами каждого решения.
+        </p>
+        <div class="hero-actions">
+          <a href="#analytics" class="btn-primary">
+            Смотреть кейсы
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+          </a>
+          <a href="https://vibecode.bitrix24.tech/" target="_blank" class="btn-secondary">
+            Официальный сайт VibeCode
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg>
+          </a>
+        </div>
+      </section>
+
+      <!-- CATEGORY 1: Сводная Аналитика -->
+      <section class="category-section" id="analytics">
+        <div class="category-header">
+          <div class="category-title-group">
+            <div class="category-icon">📊</div>
+            <h2 class="category-title">Сводная Аналитика & BI-дашборды</h2>
+          </div>
+          <div class="category-count">5 решений</div>
+        </div>
+
+        <div class="accordion-group">
+
+          <!-- Case 1: Паспорт клиента -->
+          <div class="accordion-item active">
+            <div class="accordion-header">
+              <div class="accordion-meta-main">
+                <span class="case-badge badge-cyan">Флагман</span>
+                <div class="case-header-content">
+                  <div class="case-title">«Паспорт клиента» — Агрегатор контекста CRM</div>
+                  <div class="case-author">
+                    <span class="case-author-icon">👤</span> Команда VibeCode & Сообщество
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-chevron">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+              </div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">
+                      Полный сводный дашборд по компании, который мгновенно объединяет карточку компании, контакты, сделки, лиды и истории активностей в одном окне без ручного перехода по десяткам вкладок Битрикс24.
+                    </div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list">
+                      <li class="feature-item"><span class="feature-bullet">✓</span> Работа в 2 местах: Вкладка в карточке компании (<code>CRM_COMPANY_DETAIL_TAB</code>) и левом меню (<code>LEFT_MENU</code>).</li>
+                      <li class="feature-item"><span class="feature-bullet">✓</span> Двухэтапный Batch API: первичный запрос компании + 2-й проход догрузки активностей по сделкам.</li>
+                      <li class="feature-item"><span class="feature-bullet">✓</span> Безопасность: Авторизация сохраняется через <code>HttpOnly</code> cookie с <code>SameSite=None; Secure</code>.</li>
+                    </ul>
+                    <div class="tech-tags">
+                      <span class="tech-tag">TypeScript</span>
+                      <span class="tech-tag">Vibe Batch API</span>
+                      <span class="tech-tag">node:test</span>
+                      <span class="tech-tag">SSR HTML</span>
+                    </div>
+                  </div>
+                  <div class="meta-box">
+                    <div class="meta-item">
+                      <div class="meta-label">Размещение</div>
+                      <div class="meta-value">CRM Tab / Left Menu</div>
+                    </div>
+                    <div class="meta-item">
+                      <div class="meta-label">Экономия времени</div>
+                      <div class="meta-value">До 2 часов в день на поиск</div>
+                    </div>
+                    <div class="meta-item">
+                      <div class="meta-label">Шлюз авторизации</div>
+                      <div class="meta-value">Vibe Handler Gateway</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case 2: Отчет по задачам -->
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="accordion-meta-main">
+                <span class="case-badge badge-purple">Аналитика</span>
+                <div class="case-header-content">
+                  <div class="case-title">Сводный отчёт по задачам и загрузке сотрудников</div>
+                  <div class="case-author">
+                    <span class="case-author-icon">👤</span> Дмитрий Попов, Алексей Шурыгин
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-chevron">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+              </div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">
+                      Приложение со сводным отчетом по задачам, активным сотрудникам и исполнителям. Позволяет выбирать произвольные диапазоны дат, строить сводные графики и дашборды с фильтрацией по статусам.
+                    </div>
+                    <ul class="feature-list">
+                      <li class="feature-item"><span class="feature-bullet">✓</span> Исключает необходимость сложной настройки сторонних BI-конструкторов.</li>
+                      <li class="feature-item"><span class="feature-bullet">✓</span> Рассчитывает суммарное рабочее время и показатели закрытия задач по всем активным сотрудникам.</li>
+                    </ul>
+                    <div class="telegram-quote">
+                      «Сделай мне отчет по задачам: выбор периода по датам, ответственные — все активные сотрудники, таблица, графики, суммарные дашборды... ИИ сделал это за несколько минут!» — Из чата VibeCode
+                    </div>
+                  </div>
+                  <div class="meta-box">
+                    <div class="meta-item">
+                      <div class="meta-label">Время создания</div>
+                      <div class="meta-value">~15 минут промптинга</div>
+                    </div>
+                    <div class="meta-item">
+                      <div class="meta-label">Тип UI</div>
+                      <div class="meta-value">Таблицы & Графики</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case 3: Модуль финпланирования -->
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="accordion-meta-main">
+                <span class="case-badge badge-green">Финансы</span>
+                <div class="case-header-content">
+                  <div class="case-title">Модуль финансового планирования и дашборд сделок</div>
+                  <div class="case-author">
+                    <span class="case-author-icon">👤</span> Участник сообщества
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-chevron">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+              </div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">
+                      Кастомный модуль финансового планирования, представляющий собой визуальный дашборд со сводными таблицами и трендовыми графиками на основе прошлых периодов и текущих сделок в CRM.
+                    </div>
+                    <div class="tech-tags">
+                      <span class="tech-tag">CRM Deals API</span>
+                      <span class="tech-tag">Financial Charts</span>
+                      <span class="tech-tag">BlackHole Server</span>
+                    </div>
+                  </div>
+                  <div class="meta-box">
+                    <div class="meta-item">
+                      <div class="meta-label">Назначение</div>
+                      <div class="meta-value">Планирование выручки</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case 4: Анализ Живой Ленты -->
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="accordion-meta-main">
+                <span class="case-badge badge-orange">HR & Активность</span>
+                <div class="case-header-content">
+                  <div class="case-title">Аналитика постов сотрудников в Живую Ленту</div>
+                  <div class="case-author">
+                    <span class="case-author-icon">👤</span> Владислав Танасов
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-chevron">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+              </div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body-inner">
+                <div class="case-description">
+                  Приложение собирает вовлеченность и группирует количество публикаций сотрудников в Новости / Живую ленту Битрикс24 в разрезе месяцев за последний год.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case 5: Единый дашборд отчетов -->
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="accordion-meta-main">
+                <span class="case-badge badge-cyan">Агрегатор</span>
+                <div class="case-header-content">
+                  <div class="case-title">Единый консолидированный хаб отчётов</div>
+                  <div class="case-author">
+                    <span class="case-author-icon">👤</span> Sergey
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-chevron">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+              </div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body-inner">
+                <div class="case-description">
+                  Разработчик написал несколько узкоспециализированных отчетов, а затем объединил их в единое приложение с подкючением к Б24. Все ключевые показатели теперь доступны в одном интерфейсе в реальном времени.
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- CATEGORY 2: Калькуляторы -->
+      <section class="category-section" id="calculators">
+        <div class="category-header">
+          <div class="category-title-group">
+            <div class="category-icon">🧮</div>
+            <h2 class="category-title">Расчетные калькуляторы & Бизнес-логика</h2>
+          </div>
+          <div class="category-count">2 решения</div>
+        </div>
+
+        <div class="accordion-group">
+          <!-- Case 6: Калькулятор маржи -->
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="accordion-meta-main">
+                <span class="case-badge badge-green">Продажи</span>
+                <div class="case-header-content">
+                  <div class="case-title">Калькулятор сложного расчёта запчастей и маржинальности</div>
+                  <div class="case-author">
+                    <span class="case-author-icon">👤</span> Иван Давлятов, Константин Нохрин
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-chevron">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+              </div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание проблемы и решения</div>
+                    <div class="case-description">
+                      На протяжении многих лет менеджеры компании вручную считали цены и маржу по оптовым и розничным категориям товаров в многостраничных файлах Excel. С помощью VibeCode логика сложного калькулятора была перенесена в удобное веб-приложение за 1 вечер.
+                    </div>
+                    <div class="telegram-quote">
+                      «Боль, которую на протяжении многих лет пытались решить — выгнать менеджеров из расчетов в Excel. Объяснять было дольше, чем сделать через вайбкодинг!» — Иван Давлятов
+                    </div>
+                  </div>
+                  <div class="meta-box">
+                    <div class="meta-item">
+                      <div class="meta-label">Заменил</div>
+                      <div class="meta-value">Ручные Excel-табели</div>
+                    </div>
+                    <div class="meta-item">
+                      <div class="meta-label">Сфера</div>
+                      <div class="meta-value">Оптово-розничные продажи</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case 7: Качалка и каталогизатор треков -->
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="accordion-meta-main">
+                <span class="case-badge badge-purple">Медиа & Алгоритмы</span>
+                <div class="case-header-content">
+                  <div class="case-title">Качалка и каталогизатор аудиотреков по отпечатку волны</div>
+                  <div class="case-author">
+                    <span class="case-author-icon">👤</span> Иван Санников
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-chevron">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+              </div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body-inner">
+                <div class="case-description">
+                  Утилита автоматического скачивания музыки с дедупликацией по звуковой волне (Audio Fingerprint) и раскладкой по тегам. Создана за 1 сессию вайбкодинга с Claude.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CATEGORY 3: ИИ & Транскрибация -->
+      <section class="category-section" id="ai-voice">
+        <div class="category-header">
+          <div class="category-title-group">
+            <div class="category-icon">🎙️</div>
+            <h2 class="category-title">ИИ-Ассистенты, Голос & Транскрибация</h2>
+          </div>
+          <div class="category-count">3 решения</div>
+        </div>
+
+        <div class="accordion-group">
+          <!-- Case 8: Транскрибатор -->
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="accordion-meta-main">
+                <span class="case-badge badge-cyan">AI Speech</span>
+                <div class="case-header-content">
+                  <div class="case-title">Сервис локальной транскрибации и глубокой очистки звука</div>
+                  <div class="case-author">
+                    <span class="case-author-icon">👤</span> Иван Шум, Natalie Shamaeva
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-chevron">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+              </div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Архитектура сервиса</div>
+                    <div class="case-description">
+                      Сервис обработки аудиофайлов лекций и звонков. Перед распознаванием речи звук пропускается через нейросеть <code>DeepFilterNet3</code> для подавления шумов, затем транскрибируется моделью <code>Whisper</code> и выгружает структурированный текст.
+                    </div>
+                    <div class="tech-tags">
+                      <span class="tech-tag">Whisper AI</span>
+                      <span class="tech-tag">DeepFilterNet3</span>
+                      <span class="tech-tag">Vibe AI Router</span>
+                    </div>
+                  </div>
+                  <div class="meta-box">
+                    <div class="meta-item">
+                      <div class="meta-label">Качество</div>
+                      <div class="meta-value">Глубокое шупоподавление</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case 9: Персональный ассистент -->
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="accordion-meta-main">
+                <span class="case-badge badge-orange">ИИ Агент</span>
+                <div class="case-header-content">
+                  <div class="case-title">Персональный ИИ-Ассистент с файлом памяти (memory.md)</div>
+                  <div class="case-author">
+                    <span class="case-author-icon">👤</span> Max Ermak
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-chevron">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+              </div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body-inner">
+                <div class="case-description">
+                  Каждый пользователь портала получает индивидуального личного ассистента, который учитывает его права доступа к CRM-сущностям и автоматически сохраняет контекст взаимодействия в локальный файл памяти <code>memory.md</code>.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case 10: Анализ чатов -->
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="accordion-meta-main">
+                <span class="case-badge badge-purple">CRM AI</span>
+                <div class="case-header-content">
+                  <div class="case-title">Модуль ИИ-анализа рабочих чатов и коммуникаций</div>
+                  <div class="case-author">
+                    <span class="case-author-icon">👤</span> Maksim
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-chevron">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+              </div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body-inner">
+                <div class="case-description">
+                  Приложение для оценки качества работы менеджеров и анализа переписок в CRM на базе вызовов моделей через Vibe AI Model Router (<code>bitrix/bitrixgpt-5</code>).
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- CATEGORY 4: Чат-боты -->
+      <section class="category-section" id="bots">
+        <div class="category-header">
+          <div class="category-title-group">
+            <div class="category-icon">🤖</div>
+            <h2 class="category-title">Чат-боты & Автоматизация</h2>
+          </div>
+          <div class="category-count">2 решения</div>
+        </div>
+
+        <div class="accordion-group">
+          <!-- Case 11: Telegram Manager -->
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="accordion-meta-main">
+                <span class="case-badge badge-pink">Telegram</span>
+                <div class="case-header-content">
+                  <div class="case-title">Менеджер Telegram-ботов с прокси и тегированием</div>
+                  <div class="case-author">
+                    <span class="case-author-icon">👤</span> Natalie Shamaeva
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-chevron">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+              </div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body-inner">
+                <div class="case-description">
+                  Многофункциональный менеджер ботов: отслеживает подписки/отписки, обходит блокировки через прокси-серверы, защищает от повторных кликов, собирает номера телефонов и присваивает теги пользователям.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case 12: Vibe Bot Platform -->
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="accordion-meta-main">
+                <span class="case-badge badge-cyan">Платформа</span>
+                <div class="case-header-content">
+                  <div class="case-title">Внутренняя Бот-Платформа VibeCode Битрикс24</div>
+                  <div class="case-author">
+                    <span class="case-author-icon">👤</span> Sergey Ryzhikov
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-chevron">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+              </div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body-inner">
+                <div class="case-description">
+                  Инфраструктура создания ботов внутри Битрикс24 взамен внешней инфраструктуры Telegram. Позволяет создавать диалоговых ассистентов с выполнением кода на VibeCode серверах.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CATEGORY 5: DevTools -->
+      <section class="category-section" id="devtools">
+        <div class="category-header">
+          <div class="category-title-group">
+            <div class="category-icon">🛠️</div>
+            <h2 class="category-title">DevTools, SDK & MCP Интеграции</h2>
+          </div>
+          <div class="category-count">4 решения</div>
+        </div>
+
+        <div class="accordion-group">
+          <!-- Case 13: SDK Skill -->
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="accordion-meta-main">
+                <span class="case-badge badge-purple">SDK & Skill</span>
+                <div class="case-header-content">
+                  <div class="case-title">bitrix24-php-sdk v3.2.0 Skill для ИИ-агентов</div>
+                  <div class="case-author">
+                    <span class="case-author-icon">👤</span> Maksim (Мейнтейнер SDK)
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-chevron">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+              </div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body-inner">
+                <div class="case-description">
+                  Автор формализовал свои знания в виде специализированного ИИ-скилла <code>bitrix24-php-sdk</code>. Теперь ИИ-агенты (Codex, Claude) автоматически релизят и пишут правильный код с поддержкой скоупа <code>IM</code>.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case 14: Codbash CLI -->
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="accordion-meta-main">
+                <span class="case-badge badge-green">CLI Tool</span>
+                <div class="case-header-content">
+                  <div class="case-title">Codbash CLI — Менеджер сессий вайбкодинга</div>
+                  <div class="case-author">
+                    <span class="case-author-icon">👤</span> Valerii Kovalskii
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-chevron">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+              </div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body-inner">
+                <div class="case-description">
+                  Утилита командной строки для контроля терминальных сессий вайбкодинга и мгновенной синхронизации проектов между несколькими рабочими ПК.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case 15: MCP Integration -->
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="accordion-meta-main">
+                <span class="case-badge badge-cyan">MCP Protocol</span>
+                <div class="case-header-content">
+                  <div class="case-title">VibeCode MCP Server Workflow в IDE (Cursor, VS Code)</div>
+                  <div class="case-author">
+                    <span class="case-author-icon">👤</span> SmitsonitDK, Max Ermak, Счастливчик
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-chevron">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+              </div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body-inner">
+                <div class="case-description">
+                  Подключение VibeCode через MCP-протокол к Cursor и Claude Code. Позволяет агенту напрямую управлять деплоем на серверах BlackHole, читать логи и автоматически создавать привязки встроек.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case 16: Documentation Chunks Generator -->
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <div class="accordion-meta-main">
+                <span class="case-badge badge-orange">ИИ Инфраструктура</span>
+                <div class="case-header-content">
+                  <div class="case-title">Автогенерация чанков документации для ИИ-агентов</div>
+                  <div class="case-author">
+                    <span class="case-author-icon">👤</span> Дмитрий Попов
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-chevron">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+              </div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body-inner">
+                <div class="case-description">
+                  Скрипт автогенерации сжатых контекстных чанков по документации API для передачи в промпты ИИ-агентов.
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="site-footer">
+        <div>Разработано для деплоя на GitHub & Vercel | VibeCode Bitrix Showcase 2026</div>
+      </footer>
+
+    </main>
+  </div>
+
+  <!-- JavaScript Script -->
+  <script src="app.js"></script>
+</body>
+</html>
