@@ -1,33 +1,28 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VibeCode Bitrix Showcase — Каталог Реальных Проектов</title>
   <meta name="description" content="Витрина решений и продуктов, созданных пользователями на платформе Битрикс24 VibeCode. Дашборды, ИИ-ассистенты, транскрибация, калькуляторы и боты.">
   
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Stylesheet -->
+  <link rel="stylesheet" href="design/tokens.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+  <a class="skip-link" href="#main">Перейти к кейсам</a>
 
   <!-- App Wrapper -->
   <div class="app-container">
 
     <!-- Mobile Header -->
     <header class="mobile-header">
-      <div class="mobile-logo">
-        <div class="brand-icon" style="width:28px; height:28px; font-size:0.9rem;">V</div>
-        VibeCode Showcase
-      </div>
-      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Открыть меню">
-        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
-        Меню
+      <div class="mobile-logo">VibeCode Showcase</div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Открыть меню" aria-expanded="false" aria-controls="sidebar">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
       </button>
     </header>
 
@@ -36,7 +31,6 @@
       
       <!-- Brand Logo -->
       <div class="brand-header">
-        <div class="brand-icon">V</div>
         <div>
           <div class="brand-title">VibeCode</div>
           <div class="brand-subtitle">Bitrix24 Showcase</div>
@@ -44,90 +38,102 @@
       </div>
 
       <!-- Live Search Box -->
-      <div class="search-container">
-        <svg class="search-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><path d="M21 21l-4.35-4.35"></path></svg>
-        <input type="text" id="searchInput" class="search-input" placeholder="Поиск по названию или автору...">
+      <div class="search-container" role="search">
+        <svg class="search-icon" aria-hidden="true" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><path d="M21 21l-4.35-4.35"></path></svg>
+        <label for="searchInput" class="sr-only">Поиск по кейсам</label>
+        <input type="search" id="searchInput" class="search-input" placeholder="Поиск по названию или автору..." autocomplete="off">
+        <button type="button" class="search-clear" id="searchClear" aria-label="Очистить поиск" hidden>✕</button>
       </div>
 
       <!-- Navigation Categories -->
       <div class="nav-section-title">Категории решений</div>
+      <nav aria-label="Категории решений">
       <ul class="nav-menu">
         <li>
           <a href="#analytics" class="nav-link active">
-            <span>📊 Сводная Аналитика</span>
-            <span class="nav-badge">5</span>
+            <span class="nav-label"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg><span>Сводная Аналитика</span></span>
+            <span class="nav-badge">11</span>
           </a>
         </li>
         <li>
           <a href="#calculators" class="nav-link">
-            <span>🧮 Калькуляторы</span>
-            <span class="nav-badge">2</span>
+            <span class="nav-label"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M9 12h.01M12 12h.01M15 12h.01M9 16h.01M12 16h.01M15 16h.01"/></svg><span>Калькуляторы</span></span>
+            <span class="nav-badge">5</span>
           </a>
         </li>
         <li>
           <a href="#ai-voice" class="nav-link">
-            <span>🎙️ ИИ & Транскрибация</span>
-            <span class="nav-badge">3</span>
+            <span class="nav-label"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg><span>ИИ & Транскрибация</span></span>
+            <span class="nav-badge">8</span>
           </a>
         </li>
         <li>
           <a href="#bots" class="nav-link">
-            <span>🤖 Чат-боты & Роботы</span>
-            <span class="nav-badge">2</span>
+            <span class="nav-label"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="8" width="16" height="11" rx="3"/><path d="M12 4v4M9 13h.01M15 13h.01M9 16.5h6"/></svg><span>Чат-боты & Роботы</span></span>
+            <span class="nav-badge">10</span>
           </a>
         </li>
         <li>
           <a href="#devtools" class="nav-link">
-            <span>🛠️ DevTools & MCP</span>
+            <span class="nav-label"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/></svg><span>DevTools & MCP</span></span>
+            <span class="nav-badge">7</span>
+          </a>
+        </li>
+        <li>
+          <a href="#crm-internal" class="nav-link">
+            <span class="nav-label"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg><span>CRM и процессы</span></span>
+            <span class="nav-badge">8</span>
+          </a>
+        </li>
+        <li>
+          <a href="#client-services" class="nav-link">
+            <span class="nav-label"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><span>Сервисы и сайты</span></span>
             <span class="nav-badge">4</span>
           </a>
         </li>
+        <li>
+          <a href="#docs-accounting" class="nav-link">
+            <span class="nav-label"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg><span>Документы и учёт</span></span>
+            <span class="nav-badge">3</span>
+          </a>
+        </li>
+        <li>
+          <a href="#integrations-access" class="nav-link">
+            <span class="nav-label"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.5-1.5"/></svg><span>Интеграции и доступ</span></span>
+            <span class="nav-badge">4</span>
+          </a>
+        </li>
+        <li>
+          <a href="#ai-infra" class="nav-link">
+            <span class="nav-label"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg><span>ИИ-инфраструктура</span></span>
+            <span class="nav-badge">3</span>
+          </a>
+        </li>
       </ul>
+      </nav>
 
       <!-- Global Controls -->
-      <div style="display:flex; gap:0.5rem; margin-bottom:1.5rem;">
-        <button class="btn-secondary" id="expandAllBtn" style="flex:1; padding:0.4rem 0.5rem; font-size:0.78rem; justify-content:center;">Раскрыть все</button>
-        <button class="btn-secondary" id="collapseAllBtn" style="flex:1; padding:0.4rem 0.5rem; font-size:0.78rem; justify-content:center;">Свернуть все</button>
+      <div class="control-row">
+        <button class="btn-secondary btn-small" id="expandAllBtn">Раскрыть все</button>
+        <button class="btn-secondary btn-small" id="collapseAllBtn">Свернуть все</button>
       </div>
 
       <!-- Sidebar Footer Stats -->
       <div class="sidebar-footer">
-        <div class="stats-grid">
-          <div class="stat-card">
-            <div class="stat-val" id="totalCasesCount">16</div>
-            <div class="stat-lbl">Кейсов</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-val">100%</div>
-            <div class="stat-lbl">VibeCode</div>
-          </div>
-        </div>
-        <div style="font-size:0.75rem; color:var(--text-dim); text-align:center;">
-          База данных сообщества Telegram<br>Битрикс24 VibeCode Тест-Драйв
-        </div>
+        <p class="sidebar-count" aria-live="polite"><span id="totalCasesCount">63</span> кейса в 10 категориях</p>
       </div>
     </aside>
 
     <!-- Main Content Area - Scrollable Right -->
-    <main class="main-content">
+    <main class="main-content" id="main">
 
       <!-- Hero Header Banner -->
       <section class="hero-section">
-        <div class="hero-tag">
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-          Практический кейс-бук сообщества
-        </div>
         <h1 class="hero-title">Что создают разработчики и бизнес на Битрикс24 VibeCode</h1>
-        <p class="hero-description">
-          Исследуйте 16+ реальных продуктов, отчетов, калькуляторов и ИИ-ассистентов, созданных пользователями платформы. Слева — навигация по категориям, ниже — аккордеон с подробными разборами каждого решения.
-        </p>
+        <p class="hero-description">Обновлено 31 октября 2026 года.</p>
         <div class="hero-actions">
-          <a href="#analytics" class="btn-primary">
-            Смотреть кейсы
-            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
-          </a>
-          <a href="https://vibecode.bitrix24.tech/" target="_blank" class="btn-secondary">
-            Официальный сайт VibeCode
+          <a href="https://vibecode.bitrix24.tech/" target="_blank" rel="noopener" class="btn-secondary">
+            Официальный сайт VibeCode<span class="sr-only"> (откроется в новой вкладке)</span>
             <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg>
           </a>
         </div>
@@ -137,31 +143,29 @@
       <section class="category-section" id="analytics">
         <div class="category-header">
           <div class="category-title-group">
-            <div class="category-icon">📊</div>
+            <div class="category-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div>
             <h2 class="category-title">Сводная Аналитика & BI-дашборды</h2>
+            <div class="category-count">11 решений</div>
           </div>
-          <div class="category-count">5 решений</div>
         </div>
 
         <div class="accordion-group">
 
-          <!-- Case 1: Паспорт клиента -->
-          <div class="accordion-item active">
-            <div class="accordion-header">
-              <div class="accordion-meta-main">
-                <span class="case-badge badge-cyan">Флагман</span>
-                <div class="case-header-content">
-                  <div class="case-title">«Паспорт клиента» — Агрегатор контекста CRM</div>
-                  <div class="case-author">
+          <div class="accordion-item" data-date="">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-1">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">«Паспорт клиента» — Агрегатор контекста CRM</span>
+                  <span class="case-author">
                     <span class="case-author-icon">👤</span> Команда VibeCode & Сообщество
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-chevron">
+                   · <span class="case-date-missing">дата уточняется</span></span>
+                </span>
+              </span>
+              <span class="accordion-chevron">
                 <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
-              </div>
-            </div>
-            <div class="accordion-content">
+              </span>
+            </button></h3>
+            <div class="accordion-content" id="case-1">
               <div class="accordion-body-inner">
                 <div class="case-grid">
                   <div>
@@ -202,22 +206,22 @@
           </div>
 
           <!-- Case 2: Отчет по задачам -->
-          <div class="accordion-item">
-            <div class="accordion-header">
-              <div class="accordion-meta-main">
-                <span class="case-badge badge-purple">Аналитика</span>
-                <div class="case-header-content">
-                  <div class="case-title">Сводный отчёт по задачам и загрузке сотрудников</div>
-                  <div class="case-author">
+
+          <div class="accordion-item" data-date="">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-2">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Сводный отчёт по задачам и загрузке сотрудников</span>
+                  <span class="case-author">
                     <span class="case-author-icon">👤</span> Дмитрий Попов, Алексей Шурыгин
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-chevron">
+                   · <span class="case-date-missing">дата уточняется</span></span>
+                </span>
+              </span>
+              <span class="accordion-chevron">
                 <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
-              </div>
-            </div>
-            <div class="accordion-content">
+              </span>
+            </button></h3>
+            <div class="accordion-content" id="case-2">
               <div class="accordion-body-inner">
                 <div class="case-grid">
                   <div>
@@ -249,22 +253,22 @@
           </div>
 
           <!-- Case 3: Модуль финпланирования -->
-          <div class="accordion-item">
-            <div class="accordion-header">
-              <div class="accordion-meta-main">
-                <span class="case-badge badge-green">Финансы</span>
-                <div class="case-header-content">
-                  <div class="case-title">Модуль финансового планирования и дашборд сделок</div>
-                  <div class="case-author">
+
+          <div class="accordion-item" data-date="2026-05-21">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-3">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Модуль финансового планирования и дашборд сделок</span>
+                  <span class="case-author">
                     <span class="case-author-icon">👤</span> Участник сообщества
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-chevron">
+                   · <time datetime="2026-05-21">21.05.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron">
                 <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
-              </div>
-            </div>
-            <div class="accordion-content">
+              </span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/4752" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-3">
               <div class="accordion-body-inner">
                 <div class="case-grid">
                   <div>
@@ -290,50 +294,280 @@
           </div>
 
           <!-- Case 4: Анализ Живой Ленты -->
-          <div class="accordion-item">
-            <div class="accordion-header">
-              <div class="accordion-meta-main">
-                <span class="case-badge badge-orange">HR & Активность</span>
-                <div class="case-header-content">
-                  <div class="case-title">Аналитика постов сотрудников в Живую Ленту</div>
-                  <div class="case-author">
+
+          <div class="accordion-item" data-date="2026-03-27">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-4">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Аналитика постов сотрудников в Живую Ленту</span>
+                  <span class="case-author">
                     <span class="case-author-icon">👤</span> Владислав Танасов
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-chevron">
+                   · <time datetime="2026-03-27">27.03.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron">
                 <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
-              </div>
-            </div>
-            <div class="accordion-content">
+              </span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/200" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-4">
               <div class="accordion-body-inner">
                 <div class="case-description">
                   Приложение собирает вовлеченность и группирует количество публикаций сотрудников в Новости / Живую ленту Битрикс24 в разрезе месяцев за последний год.
+                </div>
+              
+
+</div>
+            </div>
+          </div>
+
+          <!-- Case 5: Единый дашборд отчетов -->
+
+          <div class="accordion-item" data-date="2026-04-03">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-5">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Единый консолидированный хаб отчётов</span>
+                  <span class="case-author">
+                    <span class="case-author-icon">👤</span> Sergey
+                   · <time datetime="2026-04-03">03.04.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+              </span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/632" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-5">
+              <div class="accordion-body-inner">
+                <div class="case-description">
+                  Разработчик написал несколько узкоспециализированных отчетов, а затем объединил их в единое приложение с подкючением к Б24. Все ключевые показатели теперь доступны в одном интерфейсе в реальном времени.
+                </div>
+              
+
+</div>
+            </div>
+          </div>
+
+
+          <!-- Case: Утренняя сводка по задачам и чатам двух порталов -->
+
+          <div class="accordion-item" data-date="2026-05-21">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-6">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Утренняя сводка по задачам и чатам двух порталов</span>
+                  <span class="case-author">
+                    <span class="case-author-icon">👤</span> Oleg M
+                   · <time datetime="2026-05-21">21.05.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+              </span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/4872" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-6">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">
+                      Бот собирает аналитику по задачам и чатам сразу с двух порталов Битрикс24 и каждое утро присылает обзор. Для анализа подключён облачный агент Cursor.
+                    </div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list">
+                      <li class="feature-item"><span class="feature-bullet">✓</span> Данные с двух порталов в одном обзоре</li><li class="feature-item"><span class="feature-bullet">✓</span> Ежедневная сводка без ручного запуска</li>
+                    </ul>
+                    <div class="tech-tags">
+                      <span class="tech-tag">Vibe Bot</span><span class="tech-tag">Tasks</span><span class="tech-tag">Cursor Agent</span>
+                    </div>
+                  </div>
+                  <div class="meta-box">
+                    <div class="meta-item"><div class="meta-label">Порталов</div><div class="meta-value">2</div></div><div class="meta-item"><div class="meta-label">Расписание</div><div class="meta-value">Каждое утро</div></div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Case 5: Единый дашборд отчетов -->
-          <div class="accordion-item">
-            <div class="accordion-header">
-              <div class="accordion-meta-main">
-                <span class="case-badge badge-cyan">Агрегатор</span>
-                <div class="case-header-content">
-                  <div class="case-title">Единый консолидированный хаб отчётов</div>
-                  <div class="case-author">
-                    <span class="case-author-icon">👤</span> Sergey
+          <!-- Case: Дашборд воронок CRM с краткой сводкой в Telegram -->
+
+          <div class="accordion-item" data-date="">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-7">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Дашборд воронок CRM с краткой сводкой в Telegram</span>
+                  <span class="case-author">
+                    <span class="case-author-icon">👤</span> Участник сообщества
+                   · <span class="case-date-missing">дата уточняется</span></span>
+                </span>
+              </span>
+              <span class="accordion-chevron">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+              </span>
+            </button></h3>
+            <div class="accordion-content" id="case-7">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">
+                      Дашборд показывает состояние воронок CRM. Автор хотел получать краткую сводку по ним в Telegram. В обсуждении выяснилось, что доставка в Telegram зависит от исходящего интернета, а платформа ограничивает его.
+                    </div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list">
+                      <li class="feature-item"><span class="feature-bullet">✓</span> Визуализация воронок CRM</li><li class="feature-item"><span class="feature-bullet">✓</span> Краткая сводка для Telegram (в планах)</li>
+                    </ul>
+                    <div class="tech-tags">
+                      <span class="tech-tag">CRM Funnels</span><span class="tech-tag">Dashboard</span><span class="tech-tag">Telegram</span>
+                    </div>
+                  </div>
+                  <div class="meta-box">
+                    <div class="meta-item"><div class="meta-label">Статус</div><div class="meta-value">Дашборд готов, доставка в Telegram под вопросом</div></div>
                   </div>
                 </div>
               </div>
-              <div class="accordion-chevron">
+            </div>
+          </div>
+
+          <!-- Case: Аналитика коммуникаций менеджеров, возражения и тренажёр -->
+
+          <div class="accordion-item" data-date="2026-05-20">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-8">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Аналитика коммуникаций менеджеров, возражения и тренажёр</span>
+                  <span class="case-author">
+                    <span class="case-author-icon">👤</span> Юра
+                   · <time datetime="2026-05-20">20.05.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron">
                 <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+              </span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/4704" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-8">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">
+                      Интерфейс вынесен за пределы CRM. Он хранит аналитику по коммуникациям менеджеров, собирает возражения клиентов и подсвечивает, где менеджеры не доработали. Внутренний тренажёр помогает отработать возражения, а рейтинг менеджеров подстёгивает работу.
+                    </div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list">
+                      <li class="feature-item"><span class="feature-bullet">✓</span> Сбор и подсветка возражений</li><li class="feature-item"><span class="feature-bullet">✓</span> Встроенный тренажёр отработки возражений</li><li class="feature-item"><span class="feature-bullet">✓</span> Рейтинг менеджеров</li>
+                    </ul>
+                    <div class="tech-tags">
+                      <span class="tech-tag">Sales Analytics</span><span class="tech-tag">Trainer</span><span class="tech-tag">Rating</span>
+                    </div>
+                  </div>
+                  <div class="meta-box">
+                    <div class="meta-item"><div class="meta-label">Размещение</div><div class="meta-value">Вне CRM</div></div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="accordion-content">
+          </div>
+
+          <!-- Case: Мониторинг стадий смарт-процессов и задач -->
+
+          <div class="accordion-item" data-date="2026-07-29">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-9">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Мониторинг стадий смарт-процессов и задач</span>
+                  <span class="case-author">
+                    <span class="case-author-icon">👤</span> Радмир Зейферт
+                   · <time datetime="2026-07-29">29.07.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+              </span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/10507" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-9">
               <div class="accordion-body-inner">
-                <div class="case-description">
-                  Разработчик написал несколько узкоспециализированных отчетов, а затем объединил их в единое приложение с подкючением к Б24. Все ключевые показатели теперь доступны в одном интерфейсе в реальном времени.
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">
+                      Приложение показывает, на каких стадиях находятся элементы смарт-процессов, и отслеживает выполнение задач внутри них.
+                    </div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list">
+                      <li class="feature-item"><span class="feature-bullet">✓</span> Обзор стадий смарт-процессов</li><li class="feature-item"><span class="feature-bullet">✓</span> Статус выполнения задач</li><li class="feature-item"><span class="feature-bullet">✓</span> Ограничение: сессия приложения истекает через 1–2 минуты и открывается заново</li>
+                    </ul>
+                    <div class="tech-tags">
+                      <span class="tech-tag">Smart Processes</span><span class="tech-tag">Tasks</span>
+                    </div>
+                  </div>
+                  <div class="meta-box">
+                    <div class="meta-item"><div class="meta-label">Статус</div><div class="meta-value">Работает, короткая сессия в обсуждении</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case: Расчёт начислений по записям учёта времени задач -->
+
+          <div class="accordion-item" data-date="2026-09-07">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-10">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Расчёт начислений по записям учёта времени задач</span>
+                  <span class="case-author">
+                    <span class="case-author-icon">👤</span> Дмитрий Тарнавский
+                   · <time datetime="2026-09-07">07.09.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+              </span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/12884" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-10">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">
+                      Приложение считает начисления по записям затраченного времени в задачах. Из-за отсутствия надёжного поля обновления у записей оно перечитывает записи текущего и прошлого месяцев целиком, что расходует лимиты API.
+                    </div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list">
+                      <li class="feature-item"><span class="feature-bullet">✓</span> Расчёт начислений по учёту времени</li><li class="feature-item"><span class="feature-bullet">✓</span> Ограничение: нет инкрементальной выборки изменённых записей, как и обнаружения удалённых (заявка в поддержку)</li>
+                    </ul>
+                    <div class="tech-tags">
+                      <span class="tech-tag">Time Tracking API</span><span class="tech-tag">Payroll</span>
+                    </div>
+                  </div>
+                  <div class="meta-box">
+                    <div class="meta-item"><div class="meta-label">Узкое место</div><div class="meta-value">Лимиты API при полной сверке</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item" data-date="2026-04-22">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-11">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Дашборд продаж по закрытым сделкам (VibeCode API)</span>
+                  <span class="case-author"><span class="case-author-icon">👤</span> Антон Дегтярёв · <time datetime="2026-04-22">22.04.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg></span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/2176" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-11">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">Дашборд, который выгружает закрытые сделки из VibeCode API. Запрос переделан: вместо пяти окон по семь дней теперь один запрос с пагинацией, и расхождения на стыках окон исчезли.</div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list"><li class="feature-item"><span class="feature-bullet">✓</span> Совпадение с CRM: 168 сделок за проверяемый период (со слов автора)</li><li class="feature-item"><span class="feature-bullet">✓</span> Окна по дате создания оставлены только для полного списка сделок, где без них данные не выгружаются</li></ul>
+                  </div>
+                  <div class="meta-box"><div class="meta-item"><div class="meta-label">Статус</div><div class="meta-value">работает (со слов автора)</div></div></div>
                 </div>
               </div>
             </div>
@@ -346,30 +580,29 @@
       <section class="category-section" id="calculators">
         <div class="category-header">
           <div class="category-title-group">
-            <div class="category-icon">🧮</div>
+            <div class="category-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M9 12h.01M12 12h.01M15 12h.01M9 16h.01M12 16h.01M15 16h.01"/></svg></div>
             <h2 class="category-title">Расчетные калькуляторы & Бизнес-логика</h2>
+            <div class="category-count">5 решений</div>
           </div>
-          <div class="category-count">2 решения</div>
         </div>
 
         <div class="accordion-group">
-          <!-- Case 6: Калькулятор маржи -->
-          <div class="accordion-item">
-            <div class="accordion-header">
-              <div class="accordion-meta-main">
-                <span class="case-badge badge-green">Продажи</span>
-                <div class="case-header-content">
-                  <div class="case-title">Калькулятор сложного расчёта запчастей и маржинальности</div>
-                  <div class="case-author">
+
+          <div class="accordion-item" data-date="">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-12">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Калькулятор сложного расчёта запчастей и маржинальности</span>
+                  <span class="case-author">
                     <span class="case-author-icon">👤</span> Иван Давлятов, Константин Нохрин
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-chevron">
+                   · <span class="case-date-missing">дата уточняется</span></span>
+                </span>
+              </span>
+              <span class="accordion-chevron">
                 <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
-              </div>
-            </div>
-            <div class="accordion-content">
+              </span>
+            </button></h3>
+            <div class="accordion-content" id="case-12">
               <div class="accordion-body-inner">
                 <div class="case-grid">
                   <div>
@@ -397,29 +630,137 @@
           </div>
 
           <!-- Case 7: Качалка и каталогизатор треков -->
-          <div class="accordion-item">
-            <div class="accordion-header">
-              <div class="accordion-meta-main">
-                <span class="case-badge badge-purple">Медиа & Алгоритмы</span>
-                <div class="case-header-content">
-                  <div class="case-title">Качалка и каталогизатор аудиотреков по отпечатку волны</div>
-                  <div class="case-author">
+
+          <div class="accordion-item" data-date="2026-05-24">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-13">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Качалка и каталогизатор аудиотреков по отпечатку волны</span>
+                  <span class="case-author">
                     <span class="case-author-icon">👤</span> Иван Санников
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-chevron">
+                   · <time datetime="2026-05-24">24.05.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron">
                 <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
-              </div>
-            </div>
-            <div class="accordion-content">
+              </span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/5211" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-13">
               <div class="accordion-body-inner">
                 <div class="case-description">
                   Утилита автоматического скачивания музыки с дедупликацией по звуковой волне (Audio Fingerprint) и раскладкой по тегам. Создана за 1 сессию вайбкодинга с Claude.
                 </div>
+              
+
+</div>
+            </div>
+          </div>
+
+          <!-- Case: Расчёт себестоимости и загрузка номенклатуры из Excel -->
+
+          <div class="accordion-item" data-date="2026-07-20">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-14">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Расчёт себестоимости и загрузка номенклатуры из Excel</span>
+                  <span class="case-author">
+                    <span class="case-author-icon">👤</span> Андрей Лесниковских
+                   · <time datetime="2026-07-20">20.07.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+              </span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/9800" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-14">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">
+                      Приложение в сделке подбирает номенклатуру из атомарного справочника, добавляет материалы, работы и дополнительные расходы, считает стоимость строк, групповые итоги, полную себестоимость, цену продажи, прибыль и маржинальность. Спецификация сохраняется в связке со сделкой. Отдельный скрипт превращает Excel-файл с номенклатурой производителя в формат загрузки Битрикс24: структура и свойства раскладываются автоматически, папки создаются вместе с ними.
+                    </div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list">
+                      <li class="feature-item"><span class="feature-bullet">✓</span> Расчёт себестоимости, цены и маржи по строкам</li><li class="feature-item"><span class="feature-bullet">✓</span> Спецификация, привязанная к сделке</li><li class="feature-item"><span class="feature-bullet">✓</span> Excel → загрузка номенклатуры со свойствами и папками</li>
+                    </ul>
+                    <div class="tech-tags">
+                      <span class="tech-tag">Nomenclature</span><span class="tech-tag">Excel</span><span class="tech-tag">Deals</span>
+                    </div>
+                  </div>
+                  <div class="meta-box">
+                    <div class="meta-item"><div class="meta-label">Статус</div><div class="meta-value">Завершается обновление CRM</div></div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+
+          <!-- Case: Смета материалов и работ для электромонтажа -->
+
+          <div class="accordion-item" data-date="2026-07-03">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-15">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Смета материалов и работ для электромонтажа</span>
+                  <span class="case-author">
+                    <span class="case-author-icon">👤</span> Вячеслав Битрикс24 + ИИ
+                   · <time datetime="2026-07-03">03.07.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+              </span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/8968" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-15">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">
+                      Смета открывается из сделки на десктопе или в мобильном приложении Битрикс24. Цены материалов подтягиваются онлайн с сайтов двух поставщиков. Работы добавляются автоматически: выбрали розетку, сами подтянулись монтаж и установка. Итог сохраняется в Битрикс24 как смарт-процесс, привязанный к сделке, а товары и работы попадают в сделку. Смету можно скачать в PDF или Excel и отправить клиенту.
+                    </div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list">
+                      <li class="feature-item"><span class="feature-bullet">✓</span> Цены материалов у двух поставщиков онлайн</li><li class="feature-item"><span class="feature-bullet">✓</span> Работы подбираются по позициям автоматически</li><li class="feature-item"><span class="feature-bullet">✓</span> Смета сохраняется как смарт-процесс в сделке</li>
+                    </ul>
+                    <div class="tech-tags">
+                      <span class="tech-tag">Smart Process</span><span class="tech-tag">Deals</span><span class="tech-tag">Mobile</span>
+                    </div>
+                  </div>
+                  <div class="meta-box">
+                    <div class="meta-item"><div class="meta-label">Размещение</div><div class="meta-value">Сделка: десктоп и мобильное приложение</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item" data-date="2026-06-20">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-16">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Расчёт зарплаты электромонтажников по смарт-процессу «Отчёт по работам»</span>
+                  <span class="case-author"><span class="case-author-icon">👤</span> Вячеслав Битрикс24 + ИИ · <time datetime="2026-06-20">20.06.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg></span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/7958" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-16">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">Вкладка с отчётами за выбранный период и расчётом премий за квартал и год на основе данных смарт-процесса «Отчёт по работам». Работает с февраля.</div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list"><li class="feature-item"><span class="feature-bullet">✓</span> Экономия около 3 часов в месяц, 36 часов в год (со слов автора)</li></ul>
+                  </div>
+                  <div class="meta-box"><div class="meta-item"><div class="meta-label">Статус</div><div class="meta-value">работает с февраля (со слов автора)</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 
@@ -427,30 +768,29 @@
       <section class="category-section" id="ai-voice">
         <div class="category-header">
           <div class="category-title-group">
-            <div class="category-icon">🎙️</div>
+            <div class="category-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div>
             <h2 class="category-title">ИИ-Ассистенты, Голос & Транскрибация</h2>
+            <div class="category-count">8 решений</div>
           </div>
-          <div class="category-count">3 решения</div>
         </div>
 
         <div class="accordion-group">
-          <!-- Case 8: Транскрибатор -->
-          <div class="accordion-item">
-            <div class="accordion-header">
-              <div class="accordion-meta-main">
-                <span class="case-badge badge-cyan">AI Speech</span>
-                <div class="case-header-content">
-                  <div class="case-title">Сервис локальной транскрибации и глубокой очистки звука</div>
-                  <div class="case-author">
+
+          <div class="accordion-item" data-date="2026-05-02">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-17">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Сервис локальной транскрибации и глубокой очистки звука</span>
+                  <span class="case-author">
                     <span class="case-author-icon">👤</span> Иван Шум, Natalie Shamaeva
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-chevron">
+                   · <time datetime="2026-05-02">02.05.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron">
                 <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
-              </div>
-            </div>
-            <div class="accordion-content">
+              </span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/2827" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-17">
               <div class="accordion-body-inner">
                 <div class="case-grid">
                   <div>
@@ -467,7 +807,7 @@
                   <div class="meta-box">
                     <div class="meta-item">
                       <div class="meta-label">Качество</div>
-                      <div class="meta-value">Глубокое шупоподавление</div>
+                      <div class="meta-value">Глубокое шумоподавление</div>
                     </div>
                   </div>
                 </div>
@@ -476,22 +816,22 @@
           </div>
 
           <!-- Case 9: Персональный ассистент -->
-          <div class="accordion-item">
-            <div class="accordion-header">
-              <div class="accordion-meta-main">
-                <span class="case-badge badge-orange">ИИ Агент</span>
-                <div class="case-header-content">
-                  <div class="case-title">Персональный ИИ-Ассистент с файлом памяти (memory.md)</div>
-                  <div class="case-author">
+
+          <div class="accordion-item" data-date="">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-18">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Персональный ИИ-Ассистент с файлом памяти (memory.md)</span>
+                  <span class="case-author">
                     <span class="case-author-icon">👤</span> Max Ermak
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-chevron">
+                   · <span class="case-date-missing">дата уточняется</span></span>
+                </span>
+              </span>
+              <span class="accordion-chevron">
                 <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
-              </div>
-            </div>
-            <div class="accordion-content">
+              </span>
+            </button></h3>
+            <div class="accordion-content" id="case-18">
               <div class="accordion-body-inner">
                 <div class="case-description">
                   Каждый пользователь портала получает индивидуального личного ассистента, который учитывает его права доступа к CRM-сущностям и автоматически сохраняет контекст взаимодействия в локальный файл памяти <code>memory.md</code>.
@@ -501,25 +841,213 @@
           </div>
 
           <!-- Case 10: Анализ чатов -->
-          <div class="accordion-item">
-            <div class="accordion-header">
-              <div class="accordion-meta-main">
-                <span class="case-badge badge-purple">CRM AI</span>
-                <div class="case-header-content">
-                  <div class="case-title">Модуль ИИ-анализа рабочих чатов и коммуникаций</div>
-                  <div class="case-author">
+
+          <div class="accordion-item" data-date="2026-04-23">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-19">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Модуль ИИ-анализа рабочих чатов и коммуникаций</span>
+                  <span class="case-author">
                     <span class="case-author-icon">👤</span> Maksim
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-chevron">
+                   · <time datetime="2026-04-23">23.04.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron">
                 <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
-              </div>
-            </div>
-            <div class="accordion-content">
+              </span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/2264" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-19">
               <div class="accordion-body-inner">
                 <div class="case-description">
                   Приложение для оценки качества работы менеджеров и анализа переписок в CRM на базе вызовов моделей через Vibe AI Model Router (<code>bitrix/bitrixgpt-5</code>).
+                </div>
+              
+
+</div>
+            </div>
+          </div>
+
+
+          <!-- Case: Разбор сканов приказов о зачислении: PDF, OCR и разноска по сделкам -->
+
+          <div class="accordion-item" data-date="2026-05-18">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-20">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Разбор сканов приказов о зачислении: PDF, OCR и разноска по сделкам</span>
+                  <span class="case-author">
+                    <span class="case-author-icon">👤</span> Денис
+                   · <time datetime="2026-05-18">18.05.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+              </span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/4328" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-20">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">
+                      Школьные приказы приходят сканами в PDF, иногда до 100 страниц в одном файле. Приложение определяет тип приказа (зачисление или отчисление), делит файл по страницам, распознаёт ФИО ребёнка и само находит нужную сделку в воронке. Готовый файл попадает в нужное поле сделки.
+                    </div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list">
+                      <li class="feature-item"><span class="feature-bullet">✓</span> Определение типа приказа</li><li class="feature-item"><span class="feature-bullet">✓</span> OCR: распознавание ФИО ребёнка на каждой странице</li><li class="feature-item"><span class="feature-bullet">✓</span> Поиск сделки и разноска нарезанных файлов</li>
+                    </ul>
+                    <div class="tech-tags">
+                      <span class="tech-tag">OCR</span><span class="tech-tag">PDF</span><span class="tech-tag">CRM Deals</span>
+                    </div>
+                  </div>
+                  <div class="meta-box">
+                    <div class="meta-item"><div class="meta-label">Раньше</div><div class="meta-value">Ручная разбивка и поиск в воронке</div></div><div class="meta-item"><div class="meta-label">Доступ</div><div class="meta-value">Пароль и автологин по порталу</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case: Анализ звонков по карточке лида и сделки -->
+
+          <div class="accordion-item" data-date="2026-05-29">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-21">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Анализ звонков по карточке лида и сделки</span>
+                  <span class="case-author">
+                    <span class="case-author-icon">👤</span> Алина
+                   · <time datetime="2026-05-29">29.05.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+              </span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/5960" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-21">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">
+                      Агент собирает записи звонков по карточке лида или сделки, сопоставляет разговоры с данными карточки и прогоняет их через ИИ. По словам автора, транскрибации звонков из Voximplant и BitrixGPT нельзя выгрузить через API или штатной выгрузкой, а для анализа они нужны.
+                    </div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list">
+                      <li class="feature-item"><span class="feature-bullet">✓</span> Сбор записей звонков по карточке</li><li class="feature-item"><span class="feature-bullet">✓</span> Сопоставление разговоров с данными сделки</li><li class="feature-item"><span class="feature-bullet">✓</span> Главный пробел: выгрузка транскрибаций</li>
+                    </ul>
+                    <div class="tech-tags">
+                      <span class="tech-tag">Voximplant</span><span class="tech-tag">BitrixGPT</span><span class="tech-tag">Calls</span>
+                    </div>
+                  </div>
+                  <div class="meta-box">
+                    <div class="meta-item"><div class="meta-label">Статус</div><div class="meta-value">Почти решено</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case: Обработка записей встреч: нарезка, транскрибация и анализ ИИ -->
+
+          <div class="accordion-item" data-date="2026-07-08">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-22">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Обработка записей встреч: нарезка, транскрибация и анализ ИИ</span>
+                  <span class="case-author">
+                    <span class="case-author-icon">👤</span> Александр Нимгиров
+                   · <time datetime="2026-07-08">08.07.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+              </span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/9132" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-22">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">
+                      Конвейер для клиента: запись встречи обрабатывается через ffmpeg, на выходе — mp3 с очищенным звуком. Длинные записи (больше часа) режутся на части, каждая отправляется на транскрибацию, текст склеивается и передаётся в BitrixGPT по промпту.
+                    </div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list">
+                      <li class="feature-item"><span class="feature-bullet">✓</span> Очистка и нарезка аудио</li><li class="feature-item"><span class="feature-bullet">✓</span> Склейка транскрипции из частей</li><li class="feature-item"><span class="feature-bullet">✓</span> Обработка готового текста моделью по промпту</li><li class="feature-item"><span class="feature-bullet">✓</span> Ограничение: на тексте около 40–45 тысяч символов вызов падает по таймауту</li>
+                    </ul>
+                    <div class="tech-tags">
+                      <span class="tech-tag">ffmpeg</span><span class="tech-tag">Transcription</span><span class="tech-tag">BitrixGPT</span>
+                    </div>
+                  </div>
+                  <div class="meta-box">
+                    <div class="meta-item"><div class="meta-label">Проблема</div><div class="meta-value">Таймаут и лимит ответа на длинный текст</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case: Голосовой ассистент с GPT для автомобиля -->
+
+          <div class="accordion-item" data-date="">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-23">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Голосовой ассистент с GPT для автомобиля</span>
+                  <span class="case-author">
+                    <span class="case-author-icon">👤</span> Участник сообщества
+                   · <span class="case-date-missing">дата уточняется</span></span>
+                </span>
+              </span>
+              <span class="accordion-chevron">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+              </span>
+            </button></h3>
+            <div class="accordion-content" id="case-23">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">
+                      Мобильное приложение с диалогом с GPT. Цель — Android Auto и Apple CarPlay. Автор выбрал собственного провайдера моделей, потому что ответ BitrixGPT занимает 6–12 секунд, а для голосового диалога это слишком долго.
+                    </div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list">
+                      <li class="feature-item"><span class="feature-bullet">✓</span> Диалог с GPT в мобильном приложении</li><li class="feature-item"><span class="feature-bullet">✓</span> Выбор модели ради скорости ответа</li>
+                    </ul>
+                    <div class="tech-tags">
+                      <span class="tech-tag">Mobile</span><span class="tech-tag">Voice</span><span class="tech-tag">GPT</span>
+                    </div>
+                  </div>
+                  <div class="meta-box">
+                    <div class="meta-item"><div class="meta-label">Публикация</div><div class="meta-value">RuStore; Android Auto и CarPlay в планах</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item" data-date="2026-10-29">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-24">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Омниканальный голосовой и текстовый помощник с 60 навыками</span>
+                  <span class="case-author"><span class="case-author-icon">👤</span> Михаил Овчинников · <time datetime="2026-10-29">29.10.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg></span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/15175" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-24">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">Помощник в Telegram, Max, мобильном приложении Android и чате Битрикс24. Гибрид приложения и агента: около 60 навыков, часть из которых не требует агента, а агент заполняет фильтры по распознанному тексту.</div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list"><li class="feature-item"><span class="feature-bullet">✓</span> Ответ с данными CRM за 2–5 секунд (со слов автора)</li></ul>
+                  </div>
+                  <div class="meta-box"><div class="meta-item"><div class="meta-label">Статус</div><div class="meta-value">работает (со слов автора)</div></div></div>
                 </div>
               </div>
             </div>
@@ -532,55 +1060,56 @@
       <section class="category-section" id="bots">
         <div class="category-header">
           <div class="category-title-group">
-            <div class="category-icon">🤖</div>
+            <div class="category-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="8" width="16" height="11" rx="3"/><path d="M12 4v4M9 13h.01M15 13h.01M9 16.5h6"/></svg></div>
             <h2 class="category-title">Чат-боты & Автоматизация</h2>
+            <div class="category-count">10 решений</div>
           </div>
-          <div class="category-count">2 решения</div>
         </div>
 
         <div class="accordion-group">
-          <!-- Case 11: Telegram Manager -->
-          <div class="accordion-item">
-            <div class="accordion-header">
-              <div class="accordion-meta-main">
-                <span class="case-badge badge-pink">Telegram</span>
-                <div class="case-header-content">
-                  <div class="case-title">Менеджер Telegram-ботов с прокси и тегированием</div>
-                  <div class="case-author">
+
+          <div class="accordion-item" data-date="2026-04-23">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-25">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Менеджер Telegram-ботов с прокси и тегированием</span>
+                  <span class="case-author">
                     <span class="case-author-icon">👤</span> Natalie Shamaeva
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-chevron">
+                   · <time datetime="2026-04-23">23.04.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron">
                 <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
-              </div>
-            </div>
-            <div class="accordion-content">
+              </span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/2300" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-25">
               <div class="accordion-body-inner">
                 <div class="case-description">
                   Многофункциональный менеджер ботов: отслеживает подписки/отписки, обходит блокировки через прокси-серверы, защищает от повторных кликов, собирает номера телефонов и присваивает теги пользователям.
                 </div>
-              </div>
+              
+
+</div>
             </div>
           </div>
 
           <!-- Case 12: Vibe Bot Platform -->
-          <div class="accordion-item">
-            <div class="accordion-header">
-              <div class="accordion-meta-main">
-                <span class="case-badge badge-cyan">Платформа</span>
-                <div class="case-header-content">
-                  <div class="case-title">Внутренняя Бот-Платформа VibeCode Битрикс24</div>
-                  <div class="case-author">
+
+          <div class="accordion-item" data-date="">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-26">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Внутренняя Бот-Платформа VibeCode Битрикс24</span>
+                  <span class="case-author">
                     <span class="case-author-icon">👤</span> Sergey Ryzhikov
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-chevron">
+                   · <span class="case-date-missing">дата уточняется</span></span>
+                </span>
+              </span>
+              <span class="accordion-chevron">
                 <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
-              </div>
-            </div>
-            <div class="accordion-content">
+              </span>
+            </button></h3>
+            <div class="accordion-content" id="case-26">
               <div class="accordion-body-inner">
                 <div class="case-description">
                   Инфраструктура создания ботов внутри Битрикс24 взамен внешней инфраструктуры Telegram. Позволяет создавать диалоговых ассистентов с выполнением кода на VibeCode серверах.
@@ -588,6 +1117,282 @@
               </div>
             </div>
           </div>
+
+          <!-- Case: Бот поддержки на OpenCode и DeepSeek -->
+
+          <div class="accordion-item" data-date="2026-05-24">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-27">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Бот поддержки на OpenCode и DeepSeek</span>
+                  <span class="case-author">
+                    <span class="case-author-icon">👤</span> Ivan Nevzorov
+                   · <time datetime="2026-05-24">24.05.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+              </span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/5188" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-27">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">
+                      Бот, в который клиенты пишут задачи и вопросы, с ответами ИИ. Собран после неудачного эксперимента с другим инструментом: агент нашёл баги, исправил их и пересобрал бота.
+                    </div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list">
+                      <li class="feature-item"><span class="feature-bullet">✓</span> Ответы клиентам с ИИ</li><li class="feature-item"><span class="feature-bullet">✓</span> Восстановление проекта, который не был доведён</li>
+                    </ul>
+                    <div class="tech-tags">
+                      <span class="tech-tag">OpenCode</span><span class="tech-tag">DeepSeek</span><span class="tech-tag">Support Bot</span>
+                    </div>
+                  </div>
+                  <div class="meta-box">
+                    <div class="meta-item"><div class="meta-label">Статус</div><div class="meta-value">Собран</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case: Ассистент по регламентам компании на Hermes -->
+
+          <div class="accordion-item" data-date="2026-07-28">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-28">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Ассистент по регламентам компании на Hermes</span>
+                  <span class="case-author">
+                    <span class="case-author-icon">👤</span> Дмитрий
+                   · <time datetime="2026-07-28">28.07.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+              </span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/10437" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-28">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">
+                      Бот отвечает сотрудникам на ежедневные вопросы по регламентам и бизнес-процессам. Читает регламенты в Word и PDF, которые лежат на диске Битрикс24, и по запросу присылает шаблоны заявлений, например на отпуск или командировку.
+                    </div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list">
+                      <li class="feature-item"><span class="feature-bullet">✓</span> Ответы по регламентам из Word и PDF</li><li class="feature-item"><span class="feature-bullet">✓</span> Шаблоны заявлений по запросу</li>
+                    </ul>
+                    <div class="tech-tags">
+                      <span class="tech-tag">Hermes</span><span class="tech-tag">Диск Битрикс24</span><span class="tech-tag">Word</span><span class="tech-tag">PDF</span>
+                    </div>
+                  </div>
+                  <div class="meta-box">
+                    <div class="meta-item"><div class="meta-label">Статус</div><div class="meta-value">Первичная настройка и тесты</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case: Автообработка заявок и дообучение модели через смарт-процесс -->
+
+          <div class="accordion-item" data-date="2026-06-24">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-29">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Автообработка заявок и дообучение модели через смарт-процесс</span>
+                  <span class="case-author">
+                    <span class="case-author-icon">👤</span> Бизнес Механизмы
+                   · <time datetime="2026-06-24">24.06.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+              </span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/8337" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-29">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">
+                      ИИ-агент на BitrixGPT берёт новые заявки и создаёт лиды. Отдельный смарт-процесс «парс» дообучает модель: элемент переходит на стадию анализа, модель пересобирает ответ, и если результат устраивает, элемент уходит в успех. По словам автора, это первый случай, где ИИ полностью заменил лидогенератора.
+                    </div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list">
+                      <li class="feature-item"><span class="feature-bullet">✓</span> Автовзятие заявок и создание лидов</li><li class="feature-item"><span class="feature-bullet">✓</span> Дообучение через стадии смарт-процесса</li>
+                    </ul>
+                    <div class="tech-tags">
+                      <span class="tech-tag">BitrixGPT</span><span class="tech-tag">Smart Process</span><span class="tech-tag">Lead Generation</span>
+                    </div>
+                  </div>
+                  <div class="meta-box">
+                    <div class="meta-item"><div class="meta-label">Результат</div><div class="meta-value">Замена лидогенератора (со слов автора)</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case: ИИ-агент для бухгалтерии вместо роботов и бизнес-процессов -->
+
+          <div class="accordion-item" data-date="2026-07-16">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-30">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">ИИ-агент для бухгалтерии вместо роботов и бизнес-процессов</span>
+                  <span class="case-author">
+                    <span class="case-author-icon">👤</span> Анна
+                   · <time datetime="2026-07-16">16.07.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+              </span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/9556" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-30">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">
+                      Агент разговаривает с бухгалтерами и ставит им задачи по расписанию. Он заменил настроенные в Битрикс24 роботы, бизнес-процессы и смарт-процессы с условиями. Агенту не нужны отдельные ветки для систем налогообложения и исполнителей.
+                    </div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list">
+                      <li class="feature-item"><span class="feature-bullet">✓</span> Задачи по расписанию</li><li class="feature-item"><span class="feature-bullet">✓</span> Отказ от цепочек роботов и условий</li>
+                    </ul>
+                    <div class="tech-tags">
+                      <span class="tech-tag">Agent</span><span class="tech-tag">Tasks</span><span class="tech-tag">Accounting</span>
+                    </div>
+                  </div>
+                  <div class="meta-box">
+                    <div class="meta-item"><div class="meta-label">Итог</div><div class="meta-value">Роботы и БП отключены (со слов автора)</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case: Бот линии поддержки на Hermes с проверкой неотвеченных -->
+
+          <div class="accordion-item" data-date="">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-31">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Бот линии поддержки на Hermes с проверкой неотвеченных</span>
+                  <span class="case-author">
+                    <span class="case-author-icon">👤</span> Участник сообщества
+                   · <span class="case-date-missing">дата уточняется</span></span>
+                </span>
+              </span>
+              <span class="accordion-chevron">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+              </span>
+            </button></h3>
+            <div class="accordion-content" id="case-31">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">
+                      Бот на Hermes отвечает в линии поддержки. По крону он проверяет, остались ли неотвеченные обращения.
+                    </div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list">
+                      <li class="feature-item"><span class="feature-bullet">✓</span> Ответы в линии поддержки</li><li class="feature-item"><span class="feature-bullet">✓</span> Периодическая проверка неотвеченных обращений</li>
+                    </ul>
+                    <div class="tech-tags">
+                      <span class="tech-tag">Hermes</span><span class="tech-tag">Cron</span><span class="tech-tag">Open Line</span>
+                    </div>
+                  </div>
+                  <div class="meta-box">
+                    <div class="meta-item"><div class="meta-label">Запуск</div><div class="meta-value">По расписанию (крон)</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item" data-date="2026-04-27">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-32">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Бот постановки задач в Б24 из голоса и пересланных сообщений</span>
+                  <span class="case-author"><span class="case-author-icon">👤</span> Илья · <time datetime="2026-04-27">27.04.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg></span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/2459" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-32">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">Чат-бот создаёт задачи из текста, голосовых и пересланных сообщений: сам оформляет название, описание, срок, исполнителя и проект, при необходимости делит задачу на подзадачи. Правки вносятся следующим сообщением. Действия выполняются с правами того, кто пишет боту.</div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list"><li class="feature-item"><span class="feature-bullet">✓</span> Исходные сообщения сохраняются в задаче как источник</li><li class="feature-item"><span class="feature-bullet">✓</span> Сбои уходят ответственному за разработку с логом и несколькими повторными попытками</li></ul>
+                  </div>
+                  <div class="meta-box"><div class="meta-item"><div class="meta-label">Статус</div><div class="meta-value">развёрнут у клиента (со слов автора)</div></div><div class="meta-item"><div class="meta-label">Срок</div><div class="meta-value">2 часа разработки, развёртывание копии у клиента 2 минуты (со слов автора)</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item" data-date="2026-07-29">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-33">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Бот-монтажёр видео в Б24</span>
+                  <span class="case-author"><span class="case-author-icon">👤</span> Вячеслав Битрикс24 + ИИ · <time datetime="2026-07-29">29.07.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg></span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/10570" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-33">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">Бот монтирует видео по присланным видео и скриншотам: вырезает паузы, вставляет B-roll из скринов, добавляет титры и числовые карточки, сжимает спикера в круг на ключевых моментах и ставит заголовки между блоками. Бот живёт в Битрикс24.</div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list"><li class="feature-item"><span class="feature-bullet">✓</span> Монтаж занимает около 4 минут (со слов автора)</li></ul>
+                  </div>
+                  <div class="meta-box"><div class="meta-item"><div class="meta-label">Статус</div><div class="meta-value">работает, показ позже (со слов автора)</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item" data-date="2026-09-11">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-34">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">ИИ-бот-квалификатор на Б24 без сторонних сервисов</span>
+                  <span class="case-author"><span class="case-author-icon">👤</span> Вячеслав Битрикс24 + ИИ · <time datetime="2026-09-11">11.09.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg></span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/13131" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-34">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">Бот общается с клиентом в чате сайта, собирает нужную информацию, раскладывает её по полям карточки лида и переводит лид в нужную воронку к ответственному. Сотрудники видят диалог в открытой линии.</div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list"><li class="feature-item"><span class="feature-bullet">✓</span> Работает целиком на Б24: отдельной оплаты за токены и сторонних сервисов нет</li><li class="feature-item"><span class="feature-bullet">✓</span> Стоимость обслуживания — аренда сервера, 600 рублей в месяц (со слов автора)</li></ul>
+                  </div>
+                  <div class="meta-box"><div class="meta-item"><div class="meta-label">Статус</div><div class="meta-value">в работе (со слов автора)</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 
@@ -595,105 +1400,110 @@
       <section class="category-section" id="devtools">
         <div class="category-header">
           <div class="category-title-group">
-            <div class="category-icon">🛠️</div>
+            <div class="category-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/></svg></div>
             <h2 class="category-title">DevTools, SDK & MCP Интеграции</h2>
+            <div class="category-count">7 решений</div>
           </div>
-          <div class="category-count">4 решения</div>
         </div>
 
         <div class="accordion-group">
-          <!-- Case 13: SDK Skill -->
-          <div class="accordion-item">
-            <div class="accordion-header">
-              <div class="accordion-meta-main">
-                <span class="case-badge badge-purple">SDK & Skill</span>
-                <div class="case-header-content">
-                  <div class="case-title">bitrix24-php-sdk v3.2.0 Skill для ИИ-агентов</div>
-                  <div class="case-author">
+
+          <div class="accordion-item" data-date="2026-04-18">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-35">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">bitrix24-php-sdk v3.2.0 Skill для ИИ-агентов</span>
+                  <span class="case-author">
                     <span class="case-author-icon">👤</span> Maksim (Мейнтейнер SDK)
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-chevron">
+                   · <time datetime="2026-04-18">18.04.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron">
                 <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
-              </div>
-            </div>
-            <div class="accordion-content">
+              </span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/1838" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-35">
               <div class="accordion-body-inner">
                 <div class="case-description">
                   Автор формализовал свои знания в виде специализированного ИИ-скилла <code>bitrix24-php-sdk</code>. Теперь ИИ-агенты (Codex, Claude) автоматически релизят и пишут правильный код с поддержкой скоупа <code>IM</code>.
                 </div>
-              </div>
+              
+
+</div>
             </div>
           </div>
 
           <!-- Case 14: Codbash CLI -->
-          <div class="accordion-item">
-            <div class="accordion-header">
-              <div class="accordion-meta-main">
-                <span class="case-badge badge-green">CLI Tool</span>
-                <div class="case-header-content">
-                  <div class="case-title">Codbash CLI — Менеджер сессий вайбкодинга</div>
-                  <div class="case-author">
+
+          <div class="accordion-item" data-date="2026-04-15">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-36">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Codbash CLI — Менеджер сессий вайбкодинга</span>
+                  <span class="case-author">
                     <span class="case-author-icon">👤</span> Valerii Kovalskii
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-chevron">
+                   · <time datetime="2026-04-15">15.04.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron">
                 <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
-              </div>
-            </div>
-            <div class="accordion-content">
+              </span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/1690" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-36">
               <div class="accordion-body-inner">
                 <div class="case-description">
                   Утилита командной строки для контроля терминальных сессий вайбкодинга и мгновенной синхронизации проектов между несколькими рабочими ПК.
                 </div>
-              </div>
+              
+
+</div>
             </div>
           </div>
 
           <!-- Case 15: MCP Integration -->
-          <div class="accordion-item">
-            <div class="accordion-header">
-              <div class="accordion-meta-main">
-                <span class="case-badge badge-cyan">MCP Protocol</span>
-                <div class="case-header-content">
-                  <div class="case-title">VibeCode MCP Server Workflow в IDE (Cursor, VS Code)</div>
-                  <div class="case-author">
+
+          <div class="accordion-item" data-date="2026-05-18">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-37">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">VibeCode MCP Server Workflow в IDE (Cursor, VS Code)</span>
+                  <span class="case-author">
                     <span class="case-author-icon">👤</span> SmitsonitDK, Max Ermak, Счастливчик
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-chevron">
+                   · <time datetime="2026-05-18">18.05.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron">
                 <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
-              </div>
-            </div>
-            <div class="accordion-content">
+              </span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/4388" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-37">
               <div class="accordion-body-inner">
                 <div class="case-description">
                   Подключение VibeCode через MCP-протокол к Cursor и Claude Code. Позволяет агенту напрямую управлять деплоем на серверах BlackHole, читать логи и автоматически создавать привязки встроек.
                 </div>
-              </div>
+              
+
+</div>
             </div>
           </div>
 
           <!-- Case 16: Documentation Chunks Generator -->
-          <div class="accordion-item">
-            <div class="accordion-header">
-              <div class="accordion-meta-main">
-                <span class="case-badge badge-orange">ИИ Инфраструктура</span>
-                <div class="case-header-content">
-                  <div class="case-title">Автогенерация чанков документации для ИИ-агентов</div>
-                  <div class="case-author">
+
+          <div class="accordion-item" data-date="">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-38">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Автогенерация чанков документации для ИИ-агентов</span>
+                  <span class="case-author">
                     <span class="case-author-icon">👤</span> Дмитрий Попов
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-chevron">
+                   · <span class="case-date-missing">дата уточняется</span></span>
+                </span>
+              </span>
+              <span class="accordion-chevron">
                 <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
-              </div>
-            </div>
-            <div class="accordion-content">
+              </span>
+            </button></h3>
+            <div class="accordion-content" id="case-38">
               <div class="accordion-body-inner">
                 <div class="case-description">
                   Скрипт автогенерации сжатых контекстных чанков по документации API для передачи в промпты ИИ-агентов.
@@ -702,8 +1512,870 @@
             </div>
           </div>
 
+
+          <!-- Case: MCP-сервер VibeCode для Codex -->
+
+          <div class="accordion-item" data-date="2026-04-26">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-39">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">MCP-сервер VibeCode для Codex</span>
+                  <span class="case-author">
+                    <span class="case-author-icon">👤</span> SmitsonitDK
+                   · <time datetime="2026-04-26">26.04.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+              </span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/2404" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-39">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">
+                      Сервер, через который Codex работает с VibeCode. Автор считает, что дешёвые специализированные модели VibeCode могут заменить дорогие вызовы в Codex, хотя сам MCP-сервер добавляет токены контекста.
+                    </div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list">
+                      <li class="feature-item"><span class="feature-bullet">✓</span> Доступ Codex к VibeCode через MCP</li><li class="feature-item"><span class="feature-bullet">✓</span> Вызовы моделей VibeCode вместо дорогих (расчёт автора)</li>
+                    </ul>
+                    <div class="tech-tags">
+                      <span class="tech-tag">MCP</span><span class="tech-tag">Codex</span><span class="tech-tag">VibeCode API</span>
+                    </div>
+                  </div>
+                  <div class="meta-box">
+                    <div class="meta-item"><div class="meta-label">Требование</div><div class="meta-value">Активная подписка Codex или Claude</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case: MCP для создания и редактирования сайтов Битрикс24 -->
+
+          <div class="accordion-item" data-date="2026-06-23">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-40">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">MCP для создания и редактирования сайтов Битрикс24</span>
+                  <span class="case-author">
+                    <span class="case-author-icon">👤</span> Кирилл Антропов
+                   · <time datetime="2026-06-23">23.06.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+              </span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/8237" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-40">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">
+                      Инструмент позволяет ИИ-агентам создавать и редактировать сайты Битрикс24. Работа показана в видеодемонстрации на примере Claude Code.
+                    </div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list">
+                      <li class="feature-item"><span class="feature-bullet">✓</span> Создание и правка сайтов через ИИ-агентов</li><li class="feature-item"><span class="feature-bullet">✓</span> Демонстрация в Claude Code</li>
+                    </ul>
+                    <div class="tech-tags">
+                      <span class="tech-tag">MCP</span><span class="tech-tag">Сайты Битрикс24</span><span class="tech-tag">Claude Code</span>
+                    </div>
+                  </div>
+                  <div class="meta-box">
+                    <div class="meta-item"><div class="meta-label">Формат</div><div class="meta-value">Видеодемонстрация</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case: Симулятор отдела продаж для демонстрации отчётов -->
+
+          <div class="accordion-item" data-date="2026-03-27">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-41">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Симулятор отдела продаж для демонстрации отчётов</span>
+                  <span class="case-author">
+                    <span class="case-author-icon">👤</span> Евгений Кириченко
+                   · <time datetime="2026-03-27">27.03.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+              </span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/266" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-41">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">
+                      За час создано приложение, которое на тестовом портале генерирует контакты, компании и сделки. Оно двигает сделки по стадиям, добавляет товары, завершает сделки и создаёт задачи. Нужно, чтобы показывать аналитические отчёты на правдоподобных данных.
+                    </div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list">
+                      <li class="feature-item"><span class="feature-bullet">✓</span> Генерация контактов, компаний и сделок</li><li class="feature-item"><span class="feature-bullet">✓</span> Движение по стадиям и создание задач</li>
+                    </ul>
+                    <div class="tech-tags">
+                      <span class="tech-tag">CRM API</span><span class="tech-tag">Demo Data</span>
+                    </div>
+                  </div>
+                  <div class="meta-box">
+                    <div class="meta-item"><div class="meta-label">Среда</div><div class="meta-value">Тестовый портал</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
+
+      <!-- CATEGORY: CRM и внутренние процессы -->
+      <section class="category-section" id="crm-internal">
+        <div class="category-header">
+          <div class="category-title-group">
+            <div class="category-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg></div>
+            <h2 class="category-title">CRM и внутренние процессы</h2>
+            <div class="category-count">8 решений</div>
+          </div>
+        </div>
+
+        <div class="accordion-group">
+
+          <div class="accordion-item" data-date="2026-06-17">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-42">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Вкладка сбора коммерческих предложений в сделке</span>
+                  <span class="case-author">
+                    <span class="case-author-icon">👤</span> Alex Makarov
+                   · <time datetime="2026-06-17">17.06.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+              </span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/7736" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-42">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">
+                      Вкладка в карточке сделки помогает собирать предложения с рынка. Кнопка переносит выбранные товары из вкладки в стандартную вкладку товаров Битрикс24, а затем по шаблону формируется документ КП. Документ заполняется верно, но фото товаров в него не попадают.
+                    </div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list">
+                      <li class="feature-item"><span class="feature-bullet">✓</span> Сбор предложений во вкладке сделки</li><li class="feature-item"><span class="feature-bullet">✓</span> Перенос товаров в стандартную вкладку</li><li class="feature-item"><span class="feature-bullet">✓</span> Открытая проблема: фото не переносятся</li>
+                    </ul>
+                    <div class="tech-tags">
+                      <span class="tech-tag">Deals</span><span class="tech-tag">Products</span><span class="tech-tag">Templates</span>
+                    </div>
+                  </div>
+                  <div class="meta-box">
+                    <div class="meta-item"><div class="meta-label">Статус</div><div class="meta-value">Работает, есть баг с фото</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case: Перенос данных между порталами Битрикс24 -->
+
+          <div class="accordion-item" data-date="2026-04-06">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-43">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Перенос данных между порталами Битрикс24</span>
+                  <span class="case-author">
+                    <span class="case-author-icon">👤</span> Сергей Кучеренко
+                   · <time datetime="2026-04-06">06.04.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+              </span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/888" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-43">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">
+                      ИИ-агент переносит данные клиента с одного портала Битрикс24 на другой по описанию задачи. Тестовый перенос прошёл, боевой был запланирован. По словам автора, чем подробнее описание, тем точнее результат.
+                    </div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list">
+                      <li class="feature-item"><span class="feature-bullet">✓</span> Перенос по текстовому описанию</li><li class="feature-item"><span class="feature-bullet">✓</span> Тестовый перенос пройден</li>
+                    </ul>
+                    <div class="tech-tags">
+                      <span class="tech-tag">REST API</span><span class="tech-tag">Migration</span>
+                    </div>
+                  </div>
+                  <div class="meta-box">
+                    <div class="meta-item"><div class="meta-label">Подход</div><div class="meta-value">Подробное описание задачи</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case: Интерфейс для пунктов выдачи заказов (ПВЗ) -->
+
+          <div class="accordion-item" data-date="2026-06-08">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-44">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Интерфейс для пунктов выдачи заказов (ПВЗ)</span>
+                  <span class="case-author">
+                    <span class="case-author-icon">👤</span> Михаил Овчинников
+                   · <time datetime="2026-06-08">08.06.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+              </span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/6997" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-44">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">
+                      Сотрудники ПВЗ не заходят в Битрикс24. Операторы в офисе дополняют заявку в штатном интерфейсе, а данные уходят на ПВЗ через отдельный интерфейс. Это была первая совместная попытка автора написать приложение Битрикс24 с GPT.
+                    </div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list">
+                      <li class="feature-item"><span class="feature-bullet">✓</span> Отдельный интерфейс для ПВЗ</li><li class="feature-item"><span class="feature-bullet">✓</span> Дозаполнение заявки операторами офиса</li>
+                    </ul>
+                    <div class="tech-tags">
+                      <span class="tech-tag">Custom UI</span><span class="tech-tag">GPT</span>
+                    </div>
+                  </div>
+                  <div class="meta-box">
+                    <div class="meta-item"><div class="meta-label">Пользователи</div><div class="meta-value">Сотрудники ПВЗ без доступа к Битрикс24</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case: Расчёт зарплаты монтажников и персональные ссылки сотрудникам -->
+
+          <div class="accordion-item" data-date="2026-06-20">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-45">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Расчёт зарплаты монтажников и персональные ссылки сотрудникам</span>
+                  <span class="case-author">
+                    <span class="case-author-icon">👤</span> Вячеслав Битрикс24 + ИИ
+                   · <time datetime="2026-06-20">20.06.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+              </span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/7958" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-45">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">
+                      Приложение считает зарплату монтажников за период по отчётам из смарт-процесса «Отчёт по работам», который монтажники заполняют с телефона на объектах. Учитываются ставка день/ночь и накопительные премии за квартал и год. Раньше отчёты присылали в Telegram, а руководитель переносил их в Excel. Для мобильного доступа автор сделал персональные ссылки с подписью HMAC: на сервере хранится секрет, в ссылке — идентификатор сотрудника и срок действия, а бот «Расчёт ЗП» присылает её каждому в Битрикс24.
+                    </div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list">
+                      <li class="feature-item"><span class="feature-bullet">✓</span> Расчёт ставок и премий за период</li><li class="feature-item"><span class="feature-bullet">✓</span> Персональные подписанные ссылки без сессии платформы</li><li class="feature-item"><span class="feature-bullet">✓</span> Бот «Расчёт ЗП» с доставкой ссылок</li>
+                    </ul>
+                    <div class="tech-tags">
+                      <span class="tech-tag">Smart Process</span><span class="tech-tag">HMAC</span><span class="tech-tag">Bot</span>
+                    </div>
+                  </div>
+                  <div class="meta-box">
+                    <div class="meta-item"><div class="meta-label">Экономия</div><div class="meta-value">Около 3 часов в месяц (со слов автора)</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case: Связка Vibe-приложения с 1С -->
+
+          <div class="accordion-item" data-date="2026-07-31">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-46">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Связка Vibe-приложения с 1С</span>
+                  <span class="case-author">
+                    <span class="case-author-icon">👤</span> Александр Новиков
+                   · <time datetime="2026-07-31">31.07.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+              </span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/10663" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-46">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">
+                      Рабочий способ подружить Vibe-приложение с 1С. В 1С запускается специальная обработка, токен берётся в личном кабинете сервиса, а в промпте разработки описывается, куда стучаться и какие данные получить. Обмен работает в обе стороны.
+                    </div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list">
+                      <li class="feature-item"><span class="feature-bullet">✓</span> Обработка 1С и токен из личного кабинета</li><li class="feature-item"><span class="feature-bullet">✓</span> Обмен данными в обе стороны</li><li class="feature-item"><span class="feature-bullet">✓</span> По обсуждению: без инструкции запросы на стороне 1С искать долго</li>
+                    </ul>
+                    <div class="tech-tags">
+                      <span class="tech-tag">1С</span><span class="tech-tag">Integration</span><span class="tech-tag">Token</span>
+                    </div>
+                  </div>
+                  <div class="meta-box">
+                    <div class="meta-item"><div class="meta-label">Совет</div><div class="meta-value">Сначала проверять на тестовых базах</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item" data-date="2026-05-29">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-47">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Агент: отчёт по трекингу времени по задачам за 7 дней</span>
+                  <span class="case-author"><span class="case-author-icon">👤</span> LDE · <time datetime="2026-05-29">29.05.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg></span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/5866" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-47">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">Агент выгружает все задачи, по которым велся учёт времени за последние 7 дней, и присылает список с уточнениями и суммами часов. Используется как фоновый процесс, который отрабатывает к концу дня.</div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list"><li class="feature-item"><span class="feature-bullet">✓</span> Запрос выполняется около 20 минут, поэтому агент подходит для фонового режима, а не для быстрого ответа</li></ul>
+                  </div>
+                  <div class="meta-box"><div class="meta-item"><div class="meta-label">Статус</div><div class="meta-value">работает как фоновый процесс (со слов автора)</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item" data-date="2026-10-01">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-48">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Методика предпроектного анализа с QA-гейтом на сервере</span>
+                  <span class="case-author"><span class="case-author-icon">👤</span> Иван Славуцкий · <time datetime="2026-10-01">01.10.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg></span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/13716" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-48">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">Авторская методика предпроектного анализа: паспорт проекта, документация для команды внедрения и QA-гейт. Процесс работал на OpenAI, затем автор перенёс его на BitrixGPT 5.6 и добавил программную балансировку недостатков модели на собственном сервере.</div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list"><li class="feature-item"><span class="feature-bullet">✓</span> По словам автора, качество сохранено после замены модели</li><li class="feature-item"><span class="feature-bullet">✓</span> Проекты требуют до 5 миллионов токенов на один проект</li></ul>
+                  </div>
+                  <div class="meta-box"><div class="meta-item"><div class="meta-label">Статус</div><div class="meta-value">работает (со слов автора)</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item" data-date="2026-06-24">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-49">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">ИИ-лидогенерация: анализ заявок, автовзятие и создание лидов</span>
+                  <span class="case-author"><span class="case-author-icon">👤</span> Бизнес Механизмы · <time datetime="2026-06-24">24.06.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg></span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/8337" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-49">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">ИИ берёт новые заявки, создаёт лиды и дообучается через смарт-процесс «парс» на стадии анализа. По словам автора, ИИ полностью заменил человека-лидогенератора и справляется лучше него.</div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list"><li class="feature-item"><span class="feature-bullet">✓</span> Полная замена ручной лидогенерации (со слов автора)</li><li class="feature-item"><span class="feature-bullet">✓</span> Дообучение через смарт-процесс «парс»</li></ul>
+                  </div>
+                  <div class="meta-box"><div class="meta-item"><div class="meta-label">Статус</div><div class="meta-value">работает (со слов автора)</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- CATEGORY: Клиентские сервисы и сайты -->
+      <section class="category-section" id="client-services">
+        <div class="category-header">
+          <div class="category-title-group">
+            <div class="category-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div>
+            <h2 class="category-title">Клиентские сервисы и сайты</h2>
+            <div class="category-count">4 решения</div>
+          </div>
+        </div>
+
+        <div class="accordion-group">
+
+          <div class="accordion-item" data-date="2026-10-16">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-50">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Личный кабинет клиентов для электромонтажной компании</span>
+                  <span class="case-author">
+                    <span class="case-author-icon">👤</span> Вячеслав Битрикс24 + ИИ
+                   · <time datetime="2026-10-16">16.10.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+              </span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/14434" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-50">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">
+                      Клиенты видят заказы, статусы, оплаты и сметы без звонков. Есть чат с менеджером, сообщения от которого попадают в Битрикс24, и кнопка заявки, которая сразу уходит ответственному менеджеру. Регистрация подтверждается кодом из письма, есть сброс пароля. Письма приходят при новом сообщении и смене статуса заказа. После закрытия заказа клиент оставляет отзыв одной кнопкой.
+                    </div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list">
+                      <li class="feature-item"><span class="feature-bullet">✓</span> Заказы, статусы, оплаты и сметы в одном месте</li><li class="feature-item"><span class="feature-bullet">✓</span> Чат с менеджером в Битрикс24</li><li class="feature-item"><span class="feature-bullet">✓</span> Заявка в один клик</li><li class="feature-item"><span class="feature-bullet">✓</span> Отзыв после закрытия заказа</li>
+                    </ul>
+                    <div class="tech-tags">
+                      <span class="tech-tag">Client Portal</span><span class="tech-tag">Email</span><span class="tech-tag">Bitrix24</span>
+                    </div>
+                  </div>
+                  <div class="meta-box">
+                    <div class="meta-item"><div class="meta-label">Главная сложность</div><div class="meta-value">Настройка почты с двухфакторной авторизацией</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case: Контент-фабрика: ИИ создаёт страницы и вставляет HTML на сайт Битрикс24 -->
+
+          <div class="accordion-item" data-date="2026-07-20">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-51">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Контент-фабрика: ИИ создаёт страницы и вставляет HTML на сайт Битрикс24</span>
+                  <span class="case-author">
+                    <span class="case-author-icon">👤</span> Вячеслав Битрикс24 + ИИ
+                   · <time datetime="2026-07-20">20.07.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+              </span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/9799" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-51">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">
+                      Инструмент для блога и лендингов. Раньше HTML-код статей вставляли в сайт вручную. Теперь ИИ генерирует страницу, создаёт её на сайте Битрикс24 и сам вставляет в неё HTML. Автор показал результат теста.
+                    </div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list">
+                      <li class="feature-item"><span class="feature-bullet">✓</span> Генерация лендингов и статей</li><li class="feature-item"><span class="feature-bullet">✓</span> Автоматическая вставка HTML на страницу сайта</li>
+                    </ul>
+                    <div class="tech-tags">
+                      <span class="tech-tag">Bitrix24 Sites</span><span class="tech-tag">HTML</span><span class="tech-tag">AI</span>
+                    </div>
+                  </div>
+                  <div class="meta-box">
+                    <div class="meta-item"><div class="meta-label">Статус</div><div class="meta-value">Тест пройден</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case: Сайт «О нас» с защищённой админкой новостей -->
+
+          <div class="accordion-item" data-date="2026-05-03">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-52">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Сайт «О нас» с защищённой админкой новостей</span>
+                  <span class="case-author">
+                    <span class="case-author-icon">👤</span> Alexander Serbul
+                   · <time datetime="2026-05-03">03.05.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+              </span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/2915" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-52">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">
+                      За полчаса собраны сайт с разделами «О нас», «Новости» и «Контакты» и админка новостей с паролем. Данные хранятся в локальной базе SQLite. Разработка велась в Claude Desktop в режиме Code.
+                    </div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list">
+                      <li class="feature-item"><span class="feature-bullet">✓</span> Публичные страницы и новости</li><li class="feature-item"><span class="feature-bullet">✓</span> Админка с паролем для публикации</li>
+                    </ul>
+                    <div class="tech-tags">
+                      <span class="tech-tag">Python</span><span class="tech-tag">Flask</span><span class="tech-tag">SQLite</span>
+                    </div>
+                  </div>
+                  <div class="meta-box">
+                    <div class="meta-item"><div class="meta-label">Время</div><div class="meta-value">Около 30 минут (со слов автора)</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item" data-date="2026-07-26">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-53">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Клиентская панель в Б24: лицензии, отчёты, бонусы и акты</span>
+                  <span class="case-author"><span class="case-author-icon">👤</span> Михаил Овчинников · <time datetime="2026-07-26">26.07.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg></span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/10301" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-53">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">Панель, в которой клиенты сами читают свои данные: лицензии, отчёты по услугам, бонусы, счета, проекты. Расчёты выполняют бизнес-процессы, данные хранятся в смарт-процессах. Клиенты добавляют свои напоминания о лицензиях, ставят встречу с проектом, отправляют задачи на расчёт трудозатрат и оставляют NPS.</div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list"><li class="feature-item"><span class="feature-bullet">✓</span> Вход по шестизначному коду, который приходит в Telegram или на почту клиента</li><li class="feature-item"><span class="feature-bullet">✓</span> Доступ к панели менеджер проекта выдаёт вручную</li></ul>
+                  </div>
+                  <div class="meta-box"><div class="meta-item"><div class="meta-label">Статус</div><div class="meta-value">работает (со слов автора)</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+
+      <section class="category-section" id="docs-accounting">
+        <div class="category-header">
+          <div class="category-title-group">
+            <div class="category-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></div>
+            <h2 class="category-title">Документы и бухгалтерия</h2>
+            <div class="category-count">3 решения</div>
+          </div>
+        </div>
+
+        <div class="accordion-group">
+
+          <div class="accordion-item" data-date="2026-05-04">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-54">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Обработка 1С для бухгалтерии: экономия 150 часов</span>
+                  <span class="case-author"><span class="case-author-icon">👤</span> Евгений Иванов · <time datetime="2026-05-04">04.05.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg></span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/3080" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-54">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">Обработка для 1С, которую автор написал впервые в жизни. По его словам, она освободила бухгалтера от ручной работы примерно на 150 часов. Подробностей о функциях в сообщении нет.</div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list"><li class="feature-item"><span class="feature-bullet">✓</span> Экономия около 150 часов бухгалтера (со слов автора)</li></ul>
+                  </div>
+                  <div class="meta-box"><div class="meta-item"><div class="meta-label">Статус</div><div class="meta-value">работает (со слов автора)</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item" data-date="2026-05-18">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-55">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Приложение для приказов о зачислении: разбор PDF, OCR и раскладка по сделкам</span>
+                  <span class="case-author"><span class="case-author-icon">👤</span> Денис · <time datetime="2026-05-18">18.05.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg></span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/4328" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-55">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">Приложение определяет тип приказа, режет PDF по страницам, распознаёт ФИО ребёнка через OCR, ищет сделку в воронке и кладёт файл в поле сделки. По словам автора, раньше менеджеры работали над этим целый день вручную.</div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list"><li class="feature-item"><span class="feature-bullet">✓</span> Разбор PDF по страницам и распознавание ФИО через OCR</li><li class="feature-item"><span class="feature-bullet">✓</span> Поиск сделки в воронке и запись файла в поле сделки</li></ul>
+                  </div>
+                  <div class="meta-box"><div class="meta-item"><div class="meta-label">Статус</div><div class="meta-value">работает (со слов автора)</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item" data-date="2026-07-16">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-56">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Агент в Б24 ставит задачи бухгалтерам по расписанию вместо роботов и БП</span>
+                  <span class="case-author"><span class="case-author-icon">👤</span> Анна · <time datetime="2026-07-16">16.07.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg></span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/9556" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-56">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">Агент беседует с бухгалтерами и ставит им задачи по расписанию. Роботы и бизнес-процессы отключены: веток условий в них больше нет. Автор — собственник бухгалтерской компании.</div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list"><li class="feature-item"><span class="feature-bullet">✓</span> Задачи ставятся по расписанию без роботов и бизнес-процессов</li><li class="feature-item"><span class="feature-bullet">✓</span> Роботы и БП отключены (со слов автора)</li></ul>
+                  </div>
+                  <div class="meta-box"><div class="meta-item"><div class="meta-label">Статус</div><div class="meta-value">работает, роботы и БП отключены (со слов автора)</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="category-section" id="integrations-access">
+        <div class="category-header">
+          <div class="category-title-group">
+            <div class="category-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.5-1.5"/></svg></div>
+            <h2 class="category-title">Интеграции и доступ</h2>
+            <div class="category-count">4 решения</div>
+          </div>
+        </div>
+
+        <div class="accordion-group">
+
+          <div class="accordion-item" data-date="2026-07-31">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-57">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Приложение-замена исходящих вебхуков Б24 во время блокировок</span>
+                  <span class="case-author"><span class="case-author-icon">👤</span> Михаил Овчинников · <time datetime="2026-07-31">31.07.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg></span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/10724" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-57">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">Приложение, которое автор написал на замену прямых исходящих вебхуков Битрикс24: во время блокировок они ходили через раз.</div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list"><li class="feature-item"><span class="feature-bullet">✓</span> По словам автора, после перехода на приложение исходящие события перестали теряться</li><li class="feature-item"><span class="feature-bullet">✓</span> Сервер приложения позже переехал в Италию (со слов автора)</li></ul>
+                  </div>
+                  <div class="meta-box"><div class="meta-item"><div class="meta-label">Статус</div><div class="meta-value">работает (со слов автора)</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item" data-date="2026-06-08">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-58">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Приложение для ПВЗ: операторы дозаполняют заявку, данные уходят на пункт выдачи</span>
+                  <span class="case-author"><span class="case-author-icon">👤</span> Михаил Овчинников · <time datetime="2026-06-08">08.06.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg></span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/6997" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-58">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">Операторы дозаполняют заявку в штатном интерфейсе Битрикс24, после чего данные передаются на пункт выдачи заказов. Автор описывает это как первую пробу совместной разработки с GPT.</div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list"><li class="feature-item"><span class="feature-bullet">✓</span> Дозаполнение заявки в штатном интерфейсе Б24</li><li class="feature-item"><span class="feature-bullet">✓</span> Передача данных на пункт выдачи заказов (результат в сообщении не указан)</li></ul>
+                  </div>
+                  <div class="meta-box"><div class="meta-item"><div class="meta-label">Статус</div><div class="meta-value">работает (со слов автора)</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item" data-date="2026-09-29">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-59">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Персональные подписанные ссылки на приложение через бота Б24</span>
+                  <span class="case-author"><span class="case-author-icon">👤</span> Вячеслав Битрикс24 + ИИ · <time datetime="2026-09-29">29.09.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg></span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/13655" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-59">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">Персональные подписанные ссылки на приложение действуют 365 дней. Бот доставляет ссылку в личный чат, и по ней сотрудник входит без повторной авторизации, в вебе и в мобильном Б24. В выгрузке отмечено, что подход спорный: ссылка по сути равна ключу доступа.</div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list"><li class="feature-item"><span class="feature-bullet">✓</span> Вход без повторной авторизации в вебе и мобильном Б24 (со слов автора)</li><li class="feature-item"><span class="feature-bullet">✓</span> Срок действия ссылки — 365 дней</li></ul>
+                  </div>
+                  <div class="meta-box"><div class="meta-item"><div class="meta-label">Статус</div><div class="meta-value">работает (со слов автора)</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item" data-date="2026-09-29">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-60">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Бот «Расчёт ЗП» присылает сотрудникам персональные ссылки</span>
+                  <span class="case-author"><span class="case-author-icon">👤</span> Вячеслав Битрикс24 + ИИ · <time datetime="2026-09-29">29.09.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg></span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/13656" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-60">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">Бот присылает сотрудникам персональные ссылки на приложение расчёта зарплаты. Схема та же, что в кейсе с персональными подписанными ссылками через бота Б24.</div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list"><li class="feature-item"><span class="feature-bullet">✓</span> Персональная ссылка, доставленная через бота</li><li class="feature-item"><span class="feature-bullet">✓</span> Результат в сообщении не указан</li></ul>
+                  </div>
+                  <div class="meta-box"><div class="meta-item"><div class="meta-label">Статус</div><div class="meta-value">работает (со слов автора)</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="category-section" id="ai-infra">
+        <div class="category-header">
+          <div class="category-title-group">
+            <div class="category-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg></div>
+            <h2 class="category-title">ИИ-инфраструктура и собственные модели</h2>
+            <div class="category-count">3 решения</div>
+          </div>
+        </div>
+
+        <div class="accordion-group">
+
+          <div class="accordion-item" data-date="2026-05-17">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-61">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">AI-документы для клиентов на локальных моделях</span>
+                  <span class="case-author"><span class="case-author-icon">👤</span> Pavel Zhukov · <time datetime="2026-05-17">17.05.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg></span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/4191" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-61">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">Продукт на базе ИИ для клиентов с потоком документов: около 500–700 документов в день плюс постобработка. Вычисления идут на собственных картах с квантованными моделями через llama.cpp, объём — 200–300 млн токенов в сутки.</div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list"><li class="feature-item"><span class="feature-bullet">✓</span> По словам автора, клиент окупает железо за 300–500 тысяч рублей; облачный вариант на vLLM, по его оценке, стоит заметно дороже</li></ul>
+                  </div>
+                  <div class="meta-box"><div class="meta-item"><div class="meta-label">Статус</div><div class="meta-value">в продакшене (со слов автора)</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item" data-date="2026-09-13">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-62">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Общая память инженерных знаний для нескольких клиентов</span>
+                  <span class="case-author"><span class="case-author-icon">👤</span> Евгений · <time datetime="2026-09-13">13.09.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg></span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/13169" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-62">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">Семантическая память для ИИ-агентов: один источник знаний для четырёх клиентов и 54 подключённых репозиториев. Агент запрашивает только релевантные факты, а не всю историю проекта, поэтому расход токенов ниже. База принадлежит владельцу, а не вендору LLM.</div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list"><li class="feature-item"><span class="feature-bullet">✓</span> Более 2 200 верифицированных записей: архитектура, конфигурации окружений, фиксы инцидентов</li><li class="feature-item"><span class="feature-bullet">✓</span> Срез памяти по запросу: что система помнит о модуле и какие ограничения действуют</li></ul>
+                  </div>
+                  <div class="meta-box"><div class="meta-item"><div class="meta-label">Статус</div><div class="meta-value">в production (со слов автора)</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item" data-date="2026-05-17">
+            <h3 class="accordion-heading"><button type="button" class="accordion-header" aria-expanded="false" aria-controls="case-63">
+              <span class="accordion-meta-main">
+                <span class="case-header-content">
+                  <span class="case-title">Собственный прод: семантический поиск, чат-боты с SLA и пайплайны на vLLM</span>
+                  <span class="case-author"><span class="case-author-icon">👤</span> Valerii Kovalskii · <time datetime="2026-05-17">17.05.2026</time></span>
+                </span>
+              </span>
+              <span class="accordion-chevron"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg></span>
+            </button><a class="source-icon" href="https://t.me/c/3761894596/4193" target="_blank" rel="noopener" aria-label="Открыть пост в чате (откроется в новой вкладке)" title="Открыть пост в чате"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg></a></h3>
+            <div class="accordion-content" id="case-63">
+              <div class="accordion-body-inner">
+                <div class="case-grid">
+                  <div>
+                    <div class="case-section-subtitle">Описание решения</div>
+                    <div class="case-description">Собственная продуктивная среда: семантический поиск по сотням миллионов сообщений, чат-боты с SLA по p99 и агентские пайплайны на vLLM. Кластер собран из RTX 6000 Pro, A100, H100 и 4090. В выгрузке отмечено, что большая часть обсуждения касалась спора о стеке, а сам кейс — работающий продакшен.</div>
+                    <div class="case-section-subtitle">Ключевые возможности</div>
+                    <ul class="feature-list"><li class="feature-item"><span class="feature-bullet">✓</span> Семантический поиск по сотням миллионов сообщений</li><li class="feature-item"><span class="feature-bullet">✓</span> Чат-боты с SLA по p99 и агентские пайплайны на vLLM</li></ul>
+                  </div>
+                  <div class="meta-box"><div class="meta-item"><div class="meta-label">Статус</div><div class="meta-value">в продакшене (со слов автора)</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <div class="empty-state" id="emptyState" role="status" hidden>Ничего не найдено по запросу «<span id="emptyQuery"></span>». Проверьте написание или <button type="button" class="link-btn" id="emptyReset">очистите поиск</button>.</div>
 
       <!-- Footer -->
       <footer class="site-footer">
@@ -711,6 +2383,11 @@
       </footer>
 
     </main>
+
+    <!-- Promo banner 300x600: shown on wide screens only (see .side-banner in styles.css) -->
+    <aside class="side-banner" aria-label="Реклама">
+      <iframe src="assets/banner/index.html?lang=ru" width="300" height="600" scrolling="no" title="Become AI Native"></iframe>
+    </aside>
   </div>
 
   <!-- JavaScript Script -->
